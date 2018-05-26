@@ -1,3 +1,5 @@
+[![codeclimate status](https://codeclimate.com/github/Desenho1-2018/School_Game_Framework-.svg?branch=master)](https://codeclimate.com/github/Desenho1-2018/School_Game_Framework-)
+
 ![FGA](https://i.imgur.com/CG5PDXg.png)
 
 É um jogo de estratégia 2D desenvolvido para a matéria de Desenho de Software da Universidade de Brasília campus Gama. 
