@@ -2,7 +2,7 @@ package game;
 
 import jplay.GameImage;
 
-public abstract class TemplateCollectLevel extends Level {
+public abstract class TemplateCollectLevel extends Scenario {
 	public final void initializeLevel() {
 		initializeObjects();
 		initializeKeyboard();

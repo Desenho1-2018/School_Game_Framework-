@@ -8,15 +8,17 @@ public class CollectLevel extends TemplateCollectLevel {
 
 	private String scenarioName;
 	private GameObject object;
+	private GameImage background;
 
 	public CollectLevel(Window gameWindow, String name) {
 		this.window = gameWindow;
 		this.scenarioName = name;
 	}
 
-	@Override
-	protected void initializeObjects() {
-	}
+//	@Override
+//	protected void initializeObjects(String backgroundImage) {
+//		createBackground(backgroundImage);
+//	}
 
 	@Override
 	protected void initializeKeyboard() {
@@ -33,8 +35,9 @@ public class CollectLevel extends TemplateCollectLevel {
 
 	@Override
 	protected void drawLevel() {
-		while (nextScenario == null) {
+		while (true) {
 			background.draw();
+			window.update();
 		}
 	}
 
@@ -44,6 +47,15 @@ public class CollectLevel extends TemplateCollectLevel {
 		return nextScenario;
 	}
 
+	public void createBackground(String backgroundImage) {
+		background = new GameImage(backgroundImage);
+	}
+
+	@Override
+	protected void initializeObjects() {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }
