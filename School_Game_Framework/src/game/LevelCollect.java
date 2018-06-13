@@ -1,9 +1,12 @@
 package game;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.util.ArrayList;
 
 import jplay.GameImage;
 import jplay.Keyboard;
+import jplay.Time;
 import jplay.Window;
 
 public class LevelCollect extends Level {
@@ -12,6 +15,7 @@ public class LevelCollect extends Level {
 	private GameImage background;
 	private ArrayList<GameObject> object = new ArrayList<GameObject>();
 	private Keyboard keyboard;
+	private Time time;
 
 	public LevelCollect(Window gameWindow, String name) {
 		this.window = gameWindow;
@@ -26,6 +30,9 @@ public class LevelCollect extends Level {
 	public void createObject(GameObject obj) {
 		this.object.add(obj);
 	}
+	public void createTime(int hour, int minute, int second, int x, int y, Boolean crescentTime) {
+		this.time = new Time(hour, minute, second, x, y, crescentTime);
+	}
 
 	public String runScenario() {
 		initializeKeyboard();
@@ -36,9 +43,12 @@ public class LevelCollect extends Level {
 
 	public void drawLevel() {
 		boolean coletaItem = false;
-
+		time.setColor(Color.ORANGE);
+		time.setFont(new Font("sansserif", Font.TRUETYPE_FONT, 15));
+		
 		while (nextScenario == null) {
 			background.draw();
+			time.draw();
 			playerInstance.draw();
 			playerInstance.setCollisionType(this.playerCollision());
 			for (GameObject obj : object) {
