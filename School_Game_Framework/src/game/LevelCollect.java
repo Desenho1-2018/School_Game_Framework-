@@ -9,7 +9,7 @@ import jplay.Keyboard;
 import jplay.Time;
 import jplay.Window;
 
-public class LevelCollect extends Level {
+public class LevelCollect extends TemplateCollectLevel {
 	private Window window;
 	private String nameScenario;
 	private GameImage background;
@@ -35,8 +35,6 @@ public class LevelCollect extends Level {
 	}
 
 	public String runScenario() {
-		initializeKeyboard();
-		drawLevel();
 		return nextScenario;
 
 	}
