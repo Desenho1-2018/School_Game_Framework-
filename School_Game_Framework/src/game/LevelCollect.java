@@ -35,27 +35,37 @@ public class LevelCollect extends Level {
 	}
 
 	public void drawLevel() {
+		boolean coletaItem = false;
+
 		while (nextScenario == null) {
 			background.draw();
-			for (GameObject obj : object) {
-				obj.draw();
-			}
 			playerInstance.draw();
 			playerInstance.setCollisionType(this.playerCollision());
+			for (GameObject obj : object) {
+				obj.draw();
+				if (playerInstance.collided(obj)) {
+					obj.hide();
+					coletaItem = true;
+				}
+				if (coletaItem == true) {
+					System.out.println("Fui pra outra fase");
+				}
+			}
 			playerInstance.move(window);
+
 			window.update();
 		}
 	}
 
 	protected void initializeKeyboard() {
-		if(window != null) {
+		if (window != null) {
 			keyboard = window.getKeyboard();
 		} else {
 			System.out.println("The keyboard needs a window to run. The window cannot be null");
 		}
-		keyboard.setBehavior(Keyboard.DOWN_KEY, Keyboard.DETECT_EVERY_PRESS); 
-		keyboard.setBehavior(Keyboard.UP_KEY, Keyboard.DETECT_EVERY_PRESS); 
+		keyboard.setBehavior(Keyboard.DOWN_KEY, Keyboard.DETECT_EVERY_PRESS);
+		keyboard.setBehavior(Keyboard.UP_KEY, Keyboard.DETECT_EVERY_PRESS);
 		keyboard.setBehavior(Keyboard.LEFT_KEY, Keyboard.DETECT_EVERY_PRESS);
 		keyboard.setBehavior(Keyboard.RIGHT_KEY, Keyboard.DETECT_EVERY_PRESS);
-}
+	}
 }
