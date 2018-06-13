@@ -60,6 +60,9 @@ public class LevelCollect extends Level {
 				if (coletaItem == true) {
 					System.out.println("Fui pra outra fase");
 				}
+				if(time.getSecond() == 0) {
+					System.out.println("GameOver");
+				}
 			}
 			playerInstance.move(window);
 
