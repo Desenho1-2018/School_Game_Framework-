@@ -1,7 +1,5 @@
 package game;
 
-import jplay.GameImage;
-
 public abstract class TemplateCollectLevel extends Level {
 	
 	public final void initializeLevel() {
@@ -15,6 +13,10 @@ public abstract class TemplateCollectLevel extends Level {
 	protected abstract void createObject(GameObject obj);
 	
 	protected abstract void createTime(int hour, int minute, int second, int x, int y, Boolean crescentTime);
+	
+	protected abstract void defeatScenario(String nextScenario);
+	
+	protected abstract void winScenario(String nextScenario);
 	
 	protected abstract void initializeKeyboard();
 

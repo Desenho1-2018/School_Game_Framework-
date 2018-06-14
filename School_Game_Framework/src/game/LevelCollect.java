@@ -16,29 +16,32 @@ public class LevelCollect extends TemplateCollectLevel {
 	private ArrayList<GameObject> object = new ArrayList<GameObject>();
 	private Keyboard keyboard;
 	private Time time;
+	private String defeat;
+	private String win;
 
 	public LevelCollect(Window gameWindow, String name) {
 		this.window = gameWindow;
 		this.nameScenario = name;
 		addPlayer(100, 100, "src//recursos//sprite//jogador2.png", 20, window);
 	}
-
+	@Override
 	public void createBackground(String imagePath) {
 		this.background = new GameImage(imagePath);
 	}
-
+	@Override
 	public void createObject(GameObject obj) {
 		this.object.add(obj);
 	}
+	@Override
 	public void createTime(int hour, int minute, int second, int x, int y, Boolean crescentTime) {
 		this.time = new Time(hour, minute, second, x, y, crescentTime);
 	}
-
+	@Override
 	public String runScenario() {
 		return nextScenario;
 
 	}
-
+	@Override
 	public void drawLevel() {
 		boolean coletaItem = false;
 		time.setColor(Color.ORANGE);
@@ -56,10 +59,10 @@ public class LevelCollect extends TemplateCollectLevel {
 					coletaItem = true;
 				}
 				if (coletaItem == true) {
-					System.out.println("Fui pra outra fase");
+					winScenario(win);
 				}
 				if(time.getSecond() == 0) {
-					System.out.println("GameOver");
+					defeatScenario(defeat);
 				}
 			}
 			playerInstance.move(window);
@@ -67,7 +70,7 @@ public class LevelCollect extends TemplateCollectLevel {
 			window.update();
 		}
 	}
-
+	@Override
 	protected void initializeKeyboard() {
 		if (window != null) {
 			keyboard = window.getKeyboard();
@@ -78,5 +81,18 @@ public class LevelCollect extends TemplateCollectLevel {
 		keyboard.setBehavior(Keyboard.UP_KEY, Keyboard.DETECT_EVERY_PRESS);
 		keyboard.setBehavior(Keyboard.LEFT_KEY, Keyboard.DETECT_EVERY_PRESS);
 		keyboard.setBehavior(Keyboard.RIGHT_KEY, Keyboard.DETECT_EVERY_PRESS);
+	}
+
+	@Override
+	protected void defeatScenario(String nextScenario) {
+		this.defeat = nextScenario;
+		System.out.println(defeat);
+	}
+
+	@Override
+	protected void winScenario(String nextScenario) {
+		this.win = nextScenario;
+		System.out.println(win);
+
 	}
 }
