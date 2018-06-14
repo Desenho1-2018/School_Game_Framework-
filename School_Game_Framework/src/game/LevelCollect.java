@@ -18,6 +18,7 @@ public class LevelCollect extends TemplateCollectLevel {
 	private Time time;
 	private String defeat;
 	private String win;
+	private String nextScenario = null;
 
 	public LevelCollect(Window gameWindow, String name) {
 		this.window = gameWindow;
@@ -37,7 +38,17 @@ public class LevelCollect extends TemplateCollectLevel {
 		this.time = new Time(hour, minute, second, x, y, crescentTime);
 	}
 	@Override
+	protected void defeatScenario(String scenarioDefeat) {
+		this.defeat = scenarioDefeat;
+	}
+
+	@Override
+	protected void winScenario(String scenarioWin) {
+		this.win = scenarioWin;
+	}
+	@Override
 	public String runScenario() {
+		System.out.println("dentro do run " + nextScenario);
 		return nextScenario;
 
 	}
@@ -59,10 +70,10 @@ public class LevelCollect extends TemplateCollectLevel {
 					coletaItem = true;
 				}
 				if (coletaItem == true) {
-					winScenario(win);
+					nextScenario = win;
 				}
 				if(time.getSecond() == 0) {
-					defeatScenario(defeat);
+					nextScenario = defeat;
 				}
 			}
 			playerInstance.move(window);
@@ -83,16 +94,4 @@ public class LevelCollect extends TemplateCollectLevel {
 		keyboard.setBehavior(Keyboard.RIGHT_KEY, Keyboard.DETECT_EVERY_PRESS);
 	}
 
-	@Override
-	protected void defeatScenario(String nextScenario) {
-		this.defeat = nextScenario;
-		System.out.println(defeat);
-	}
-
-	@Override
-	protected void winScenario(String nextScenario) {
-		this.win = nextScenario;
-		System.out.println(win);
-
-	}
 }
