@@ -41,6 +41,7 @@ public class LevelQuestion extends Level{
 			window.drawText(question.getAlternative(2).getAlternative(), 120, 320, Color.white, font);
 			window.drawText(question.getAlternative(3).getAlternative(), 120, 380, Color.white, font);
 			
+			selectOption();
 			window.update();
 			
 		}
@@ -100,17 +101,29 @@ public class LevelQuestion extends Level{
 		
 	}
 	
-	/*Implementar esse método depois
     private void selectOption() {
-		
+    	
 		if(sceneKeyboard.keyDown(Keyboard.ENTER_KEY)) {
-			if(option == 0) {
-				nextScenario = "IntroductionScene";
-			} else if (option == 1) {
-				nextScenario = "PasswordMenu";
-			}	
+			switch(option){
+			  case 0:
+				waitATime();  
+				System.out.println(question.getAlternative(0).getValidate());
+				 break;
+			  case 1:
+				waitATime();
+				System.out.println(question.getAlternative(1).getValidate());
+				break;	
+			  case 2:
+				waitATime();
+				System.out.println(question.getAlternative(2).getValidate());
+				break;
+			  case 3:
+				waitATime();
+				System.out.println(question.getAlternative(3).getValidate());
+				break;	
+		  }	
 		}
-	}*/ 
+	} 
 	
     public void initializeKeyboard() {
 		
