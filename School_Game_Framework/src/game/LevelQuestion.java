@@ -6,9 +6,6 @@ import jplay.GameImage;
 import jplay.Window;
 
 public class LevelQuestion extends Level{
-
-	private String statement; //Enunciado da questao
-	private ArrayList<Alternative> alternatives; //Alternativas da questao
 	
 	public LevelQuestion(Window gameWindow, String name){
 		

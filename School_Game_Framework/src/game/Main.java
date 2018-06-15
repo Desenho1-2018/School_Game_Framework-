@@ -14,6 +14,8 @@ public class Main {
 		levelStateMachine.addScenario(xablau);
 		levelStateMachine.run("XABLAU");
 		
+		
+		
 	}
 
 }
