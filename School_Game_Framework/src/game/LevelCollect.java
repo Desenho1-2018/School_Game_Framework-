@@ -18,6 +18,8 @@ public class LevelCollect extends TemplateCollectLevel {
 	private Time time;
 	private String defeat;
 	private String win;
+	private boolean hasEnemies = false;
+	private ArrayList<GameObject> enemies = new ArrayList<GameObject>();
 	private String nextScenario = null;
 
 	public LevelCollect(Window gameWindow, String name) {
@@ -46,6 +48,15 @@ public class LevelCollect extends TemplateCollectLevel {
 	protected void winScenario(String scenarioWin) {
 		this.win = scenarioWin;
 	}
+	
+	@Override
+	protected void enemySpawn(GameObject enemy) {
+		if(hasEnemies == true) {
+			this.object.add(enemy);
+		}
+		
+	}
+	
 	@Override
 	public String runScenario() {
 		System.out.println("dentro do run " + nextScenario);
@@ -76,6 +87,12 @@ public class LevelCollect extends TemplateCollectLevel {
 					nextScenario = defeat;
 				}
 			}
+			for (GameObject enemy : enemies) {
+				enemy.draw();
+				if (playerInstance.collided(enemy)) {
+					enemy.hide();		
+				}
+			}
 			playerInstance.move(window);
 
 			window.update();
@@ -93,5 +110,6 @@ public class LevelCollect extends TemplateCollectLevel {
 		keyboard.setBehavior(Keyboard.LEFT_KEY, Keyboard.DETECT_EVERY_PRESS);
 		keyboard.setBehavior(Keyboard.RIGHT_KEY, Keyboard.DETECT_EVERY_PRESS);
 	}
+	
 
 }

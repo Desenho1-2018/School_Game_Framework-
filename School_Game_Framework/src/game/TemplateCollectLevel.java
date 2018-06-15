@@ -23,5 +23,7 @@ public abstract class TemplateCollectLevel extends Level {
 	protected abstract void drawLevel();
 
 	public abstract String runScenario();
+
+	protected abstract void enemySpawn(GameObject enemy);
 	
 }
