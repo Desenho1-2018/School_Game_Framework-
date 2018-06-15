@@ -10,15 +10,31 @@ public class ResultScene extends Level{
 
 	private boolean result = true;
 	private Font font = new Font("Verdana", Font.BOLD, 25);
+	private static ResultScene instanceResult = null;
 	
-	public ResultScene(Window gameWindow, String name) {
+	private ResultScene(Window gameWindow, boolean result) {
 
 		window = gameWindow;
-		scenarioName = name;
+		scenarioName = "ResultScene";
+		this.result = result;
 		background = new GameImage("src//recursos//sprite//lousa.jpeg");
 		
 	}
 
+	public static ResultScene getResultInstance(Window gameWindow, boolean result){
+		
+		if(instanceResult == null) {
+			
+			instanceResult = new ResultScene(gameWindow, result);
+			return instanceResult;
+		} else {
+			instanceResult.setResult(result);
+			return instanceResult;
+		}
+		
+	}
+	
+	
 	protected void updateScenario() {
 		
 		while(nextScenario == null) {
@@ -76,4 +92,7 @@ public class ResultScene extends Level{
 		}
 	}
 	
+	private void setResult(boolean result) {
+		this.result = result;
+	}
 }
