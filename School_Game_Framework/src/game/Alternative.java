@@ -6,6 +6,14 @@ public class Alternative {
 	private String alternative;
 	private boolean validate;
 	
+	public Alternative(int numb, String alt, boolean val) {
+		
+		this.number = numb;
+		this.alternative = alt;
+		this.validate = val;
+		
+	}
+	
 	public int getNumber() {
 		return number;
 	}
