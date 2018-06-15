@@ -8,7 +8,7 @@ import jplay.Window;
 
 public class ResultScene extends Level{
 
-	private boolean result = true;
+	private static boolean result = true;
 	private Font font = new Font("Verdana", Font.BOLD, 25);
 	private static ResultScene instanceResult = null;
 	
@@ -92,7 +92,7 @@ public class ResultScene extends Level{
 		}
 	}
 	
-	private void setResult(boolean result) {
-		this.result = result;
+	public static void setResult(boolean result_of_question) {
+		result = result_of_question;
 	}
 }

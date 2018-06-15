@@ -32,7 +32,7 @@ public class Main {
 		
 		levelStateMachine.addScenario(xablau);
 		levelStateMachine.addScenario(result);
-		levelStateMachine.run("ResultScene");
+		levelStateMachine.run("XABLAU");
 		
 	}
 
