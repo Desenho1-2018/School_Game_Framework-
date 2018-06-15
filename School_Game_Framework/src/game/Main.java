@@ -27,7 +27,11 @@ public class Main {
 		xablau.addQuestion(teste);
 		
 		
+		ResultScene result = ResultScene.getResultInstance(gameWindow, false);
+		
+		
 		levelStateMachine.addScenario(xablau);
+		levelStateMachine.addScenario(result);
 		levelStateMachine.run("XABLAU");
 		
 	}

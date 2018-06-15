@@ -14,6 +14,7 @@ public class LevelQuestion extends Level{
 	private GameObject arrow = null;
 	private Font font = new Font("Verdana", Font.BOLD, 25);
 	private int option = 0;
+	//private ResultScene resultInstance = null;
 	
 	public LevelQuestion(Window gameWindow, String name){
 		
@@ -21,6 +22,7 @@ public class LevelQuestion extends Level{
 		scenarioName = name;
 		background = new GameImage("src//recursos//sprite//lousa.jpeg");
 		arrow = new GameObject(270, 210, "src//recursos//sprite//arrow_button.png", 1, GameObjectType.OTHER);
+		//resultInstance = ResultScene.getResultInstance(gameWindow, false);
 		
 	};
 	
@@ -107,19 +109,19 @@ public class LevelQuestion extends Level{
 			switch(option){
 			  case 0:
 				waitATime();  
-				System.out.println(question.getAlternative(0).getValidate());
+				callResultScene(question.getAlternative(0).getValidate());
 				 break;
 			  case 1:
 				waitATime();
-				System.out.println(question.getAlternative(1).getValidate());
+				callResultScene(question.getAlternative(1).getValidate());
 				break;	
 			  case 2:
 				waitATime();
-				System.out.println(question.getAlternative(2).getValidate());
+				callResultScene(question.getAlternative(2).getValidate());
 				break;
 			  case 3:
 				waitATime();
-				System.out.println(question.getAlternative(3).getValidate());
+				callResultScene(question.getAlternative(3).getValidate());
 				break;	
 		  }	
 		}
@@ -142,6 +144,16 @@ public class LevelQuestion extends Level{
 		
 		this.question = question;
 		
+	}
+	
+	private void callResultScene(boolean result) {
+		if(result == true) {
+			ResultScene.setResult(true);
+			this.nextScenario = "ResultScene";
+		} else {
+			ResultScene.setResult(false);
+			this.nextScenario = "ResultScene";
+		}
 	}
 	
 }
