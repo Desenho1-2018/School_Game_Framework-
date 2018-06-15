@@ -6,11 +6,11 @@ public class Alternative {
 	private String alternative;
 	private boolean validate;
 	
-	public Alternative(int numb, String alt, boolean val) {
+	public Alternative(int number_of_alternative, String alternative_text, boolean validation_of_alternative) {
 		
-		this.number = numb;
-		this.alternative = alt;
-		this.validate = val;
+		this.number = number_of_alternative;
+		this.alternative = alternative_text;
+		this.validate = validation_of_alternative;
 		
 	}
 	
