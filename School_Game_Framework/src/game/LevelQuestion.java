@@ -2,6 +2,7 @@ package game;
 
 import java.util.ArrayList;
 
+import jplay.GameImage;
 import jplay.Window;
 
 public class LevelQuestion extends Level{
@@ -13,15 +14,21 @@ public class LevelQuestion extends Level{
 		
 		window = gameWindow;
 		scenarioName = name;
+		background = new GameImage("src//recursos//sprite//lousa.jpeg");
 		
 	};
 	
-	protected void updateScanario() {
+	protected void updateScenario() {
+		
+		//System.out.println("ESTOU AQUIIIIIIIIII!");
 		
 		while(nextScenario == null) {
 			
 			drawObjects();
+			background.draw();
+			//System.out.println("aaaaaaaaaaaaaaaaaaaaaaahhh eu to maluco");
 			window.update();
+			
 			
 		}
 		
@@ -34,7 +41,7 @@ public class LevelQuestion extends Level{
 	public String runScenario() {
 		
 		initializeKeyboard();
-		updateScenario();
+		this.updateScenario();
 		//this.playerInstance.setPreviousLevel("XABLAU");
 		return nextScenario;
 		
