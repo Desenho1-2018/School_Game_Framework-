@@ -10,11 +10,13 @@ public class QuestionCalculo1 extends Level {
 	private int option = 0;
 	private String nextScenario =  null; 
 	private int numberQuestion;
-	
+	 QuestionColletion aquestion;
+	    QuestionColletion aquestion3;
+	    QuestionColletion aquestion2;
 	//Constroi a cena e
 	//adiciona objetos na cena
 	public QuestionCalculo1(Window gameWindow, String name, int numberQuestion ) {
-	
+	   
 		window = gameWindow;
 		scenarioName = name;
 		background = new GameImage("src//recursos//sprite//lousa.jpeg");
@@ -24,36 +26,38 @@ public class QuestionCalculo1 extends Level {
 		int i;
 		for(i=0;i<3;i++) {
       		if(numberQuestion== 1){
-		    	QuestionColletion aquestion= new QuestionColletion();
-			    question answer0=new question2(50, 50, "src//recursos//sprite//question//limite.jpeg");
+		    	aquestion= new QuestionColletion();
+			    Question2 answer0=new Question2(50, 50, "src//recursos//sprite//question//limite.jpeg");
+			    aquestion.setcerta(0);
 			    aquestion.setquestion(answer0);
-			    question answer1=new question2(100, 300, "src//recursos//sprite//question//27.png");
+			    Question2 answer1=new Question2(100, 300, "src//recursos//sprite//question//27.png");
 			    aquestion.setquestion(answer1);
-			    question answer5=new question2(100, 350, "src//recursos//sprite//question//36.png");
+			    Question2 answer5=new Question2(100, 350, "src//recursos//sprite//question//36.png");
 			    aquestion.setquestion(answer5);
-			    question limit=new question2(50, 50, "src//recursos//sprite//question//limite.jpeg");
+			    Question2 limit=new Question2(50, 50, "src//recursos//sprite//question//limite.jpeg");
 			    aquestion.setquestion(limit);
-			    question answer2= new question2(100, 400, "src//recursos//sprite//question//45.png");
+			    Question2 answer2= new Question2(100, 400, "src//recursos//sprite//question//45.png");
 			    aquestion.setquestion(answer2);
-			    question answer3 = new question2(100, 450, "src//recursos//sprite//question//54.png");
+			    Question2 answer3 = new Question2(100, 450, "src//recursos//sprite//question//54.png");
 			    aquestion.setquestion(answer3);
 			    printquestiontela(aquestion);
-			
+			    
 		   }	else if(numberQuestion == 2){
-			    QuestionColletion aquestion2=new QuestionColletion();
-			    question derivada = new question(50, 50, "src//recursos//sprite//question//derivada.jpeg");
+			    aquestion2=new QuestionColletion();
+			    Question2 derivada = new Question2(50, 50, "src//recursos//sprite//question//derivada.jpeg");
 	            aquestion2.setquestion(derivada);
+	            aquestion3.setcerta(2);
 			    aquestion2 = this.add(100, 300, "src//recursos//sprite//question//d3.png",aquestion2);	
 			    aquestion2 = this.add(100, 350, "src//recursos//sprite//question//d2.png", aquestion2);
 			    aquestion2 = this.add(100, 400, "src//recursos//sprite//question//d1.png",aquestion2);
 			    aquestion2= this.add(100, 450, "src//recursos//sprite//question//d4.png",aquestion2);
 			    printquestiontela(aquestion2);
 			
-			
 		    }
 		
 		    else if(numberQuestion == 3){
-			    QuestionColletion aquestion3= new QuestionColletion();
+			    aquestion3= new QuestionColletion();
+			    aquestion3.setcerta(1);
 			    aquestion3 = this.add(50, 50, "src//recursos//sprite//question//integral.jpeg",aquestion3);
 			    aquestion3= this.add(100, 300, "src//recursos//sprite//question//0.png",aquestion3);
 			    aquestion3= this.add(100, 350, "src//recursos//sprite//question//1.png",aquestion3);
@@ -75,7 +79,7 @@ public class QuestionCalculo1 extends Level {
 	    	
 	    }
 	public QuestionColletion add(int x, int y, String s, QuestionColletion aquestion3) {
-		question2 question1=new question2(x,y,s);
+		Question2 question1=new Question2(x,y,s);
 		aquestion3.setquestion(question1);
 		return  aquestion3;
 		
@@ -155,92 +159,29 @@ public class QuestionCalculo1 extends Level {
 		}
 		
 	}
-		
+	private void SelectOption2(QuestionColletion aquestion4) {
+		if(option==aquestion4.getcerta()) {
+			waitAtime();
+			nextScenario = "BattleScene";
+		}else {
+			this.playerInstance.setScore(1);
+			waitAtime();
+			nextScenario = "BattleScene";
+			}
+		}
 	private void selectOption(int numberQuestion) {
 	
 		if(sceneKeyboard.keyDown(Keyboard.ENTER_KEY)) {
 		  if(numberQuestion == 1){
-			switch(option){
-			  case 0: 
-				new Battle(true, "QuestionCalculo1Scene1");
-				nextScenario = "BattleScene";
-				 break;
-			  case 1:
-				new Battle(false, "QuestionCalculo1Scene1");
-				this.playerInstance.setScore(1);
-				waitAtime();
-				System.out.println(this.playerInstance.getScore());
-				nextScenario = "BattleScene";
-				
-				break;	
-			  case 2:
-				new Battle(false, "QuestionCalculo1Scene1");
-				this.playerInstance.setScore(1);
-				waitAtime();
-				nextScenario = "BattleScene";
-				break;
-			  case 3:
-				new Battle(false, "QuestionCalculo1Scene1");
-				this.playerInstance.setScore(1);
-				waitAtime();
-				nextScenario = "BattleScene";
-				break;	
-			}
-		  }	
-		  else if(numberQuestion == 2){
-			switch(option){
-			  case 0: 
-				new Battle(false, "QuestionCalculo1Scene2");
-				this.playerInstance.setScore(1);
-				waitAtime();
-				nextScenario = "BattleScene";
-			  break;
-			  case 1:
-				new Battle(false, "QuestionCalculo1Scene2");
-				this.playerInstance.setScore(1);
-				waitAtime();
-				nextScenario = "BattleScene";
-			  break;	
-			  case 2:
-				new Battle(true, "QuestionCalculo1Scene2");
-				nextScenario = "BattleScene";
-			  break;
-			  case 3:
-				new Battle(false, "QuestionCalculo1Scene2");
-				this.playerInstance.setScore(1);
-				waitAtime();
-				nextScenario = "BattleScene";
-			  break;	
-			}  
-		  }
-		  else if(numberQuestion == 3){
-			switch(option){
-			 case 0: 
-			   new Battle(false, "QuestionCalculo1Scene3");
-				this.playerInstance.setScore(1);
-				waitAtime();
-			   nextScenario = "BattleScene";
-			 break;
-			 case 1:
-			   new Battle(true, "QuestionCalculo1Scene3");
-			   nextScenario = "BattleScene";
-			 break;	
-			 case 2:
-			   new Battle(false, "QuestionCalculo1Scene3");
-				this.playerInstance.setScore(1);
-				waitAtime();
-			   nextScenario = "BattleScene";
-			 break;
-			 case 3:
-			   new Battle(false, "QuestionCalculo1Scene3");
-				this.playerInstance.setScore(1);
-				waitAtime();
-			   nextScenario = "BattleScene";
-			  break;	
-				}  
+			  SelectOption2(this.aquestion);
+			}else if(numberQuestion==2) {
+			  SelectOption2(this.aquestion2);
+		    }else if(numberQuestion==3){
+		      SelectOption2(this.aquestion3);
+		    }
+		
 			  }
 		}
-	}
 	
 	private void waitAtime() {
 		try {

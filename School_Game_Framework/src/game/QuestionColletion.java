@@ -6,11 +6,18 @@
 	public class  QuestionColletion {
 
 		 public ArrayList <GameObject> Questions =new ArrayList<GameObject>();
-		
+		 int certa;
+		 
 		public  void QuestionColletion() {
+		
 			
 		}
-
+        public void setcerta(int certa) {
+        	this.certa=certa;
+        }
+        public int getcerta() {
+        	return this.certa;
+        }
 	   
 			
 		public int sizeQuestions() {
