@@ -72,7 +72,7 @@ public class Main {
 		levelStateMachine.addScenario(xablau);
 		levelStateMachine.addScenario(result);
 		levelStateMachine.addScenario(score);
-		levelStateMachine.run("ScoreScreen");
+		levelStateMachine.run("XABLAU");
 		
 	}
 

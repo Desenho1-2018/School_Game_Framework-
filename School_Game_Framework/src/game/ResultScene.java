@@ -89,17 +89,18 @@ public class ResultScene extends Level{
 		
 		if(result) {
 			printResultTrue();
+			ScoreScreen.plusScore();
 		} else {
 			printResultFalse();
 		}
 		
-		waitATime();
+		waitATime(1000);
 		
 	}
 	
-	private void waitATime() {
+	private void waitATime(int time) {
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(time);
 		} catch (InterruptedException e){
 			e.printStackTrace();
 		}

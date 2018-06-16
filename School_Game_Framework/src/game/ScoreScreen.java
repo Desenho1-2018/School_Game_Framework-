@@ -17,6 +17,7 @@ public class ScoreScreen extends Level {
 	private static String nextScenario = null;
 	private static String nextScreen = null;
 	private static Score score = null;
+	private static int scoreIndex = 0;
 
 	private int resultPosition = 0;
 	
@@ -48,7 +49,7 @@ public class ScoreScreen extends Level {
 			drawObjects();
 			background.draw();
 			window.drawText("RESULTADO", 300, 200, Color.white, font);
-			window.drawText(score.getScoreType(0), 315, 300, Color.white, fontResult);
+			window.drawText(score.getScoreType(scoreIndex), 315, 300, Color.white, fontResult);
 			window.drawText("Press Enter", 100, 550, Color.white, font);
 			pressEnter();
 			window.update();			
@@ -75,9 +76,9 @@ public class ScoreScreen extends Level {
 
 	
 	
-	private void waitATime() {
+	private static void waitATime(int time) {
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(time);
 		} catch (InterruptedException e){
 			e.printStackTrace();
 		}
@@ -105,6 +106,18 @@ public class ScoreScreen extends Level {
 	
 	public static void addScore(Score sc) {
 		score = sc;
+	}
+	
+	public static void plusScore() {
+		if(scoreIndex < 3) {
+			scoreIndex++;
+		} else {
+			System.out.println("The maximum number of score is 3");
+		}
+	}
+	
+	public static void resetScore() {
+		scoreIndex = 0;
 	}
 	
 }
