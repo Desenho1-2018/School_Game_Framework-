@@ -81,7 +81,10 @@ public class MainMenu extends Scenario{
     private void selectOption() {
     	if(sceneKeyboard.keyDown(Keyboard.ENTER_KEY)){	
     		if(option == 0){
-    			nextScenario = "XABLAU";
+    			nextScenario = null;
+    			if(nextScenario == null) {
+					System.out.println("PLEASE DEFINE A SCENARIO");
+				}
     		}else if(option == 1){
     			window.exit();
     		}	
