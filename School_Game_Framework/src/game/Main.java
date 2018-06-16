@@ -57,13 +57,11 @@ public class Main {
 		
 		
 		ResultScene result = ResultScene.getResultInstance(gameWindow, false);
-		ResultScene.setQuestionScenario("XABLAU");
-		ResultScene.setScoreScenario("NOTHING");
-		
-		
+		MainMenu mainmenu = new MainMenu(gameWindow, "MainMenu");
 		levelStateMachine.addScenario(xablau);
 		levelStateMachine.addScenario(result);
-		levelStateMachine.run("XABLAU");
+		levelStateMachine.addScenario(mainmenu);
+		levelStateMachine.run("MainMenu");
 		
 	}
 
