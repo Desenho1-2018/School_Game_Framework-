@@ -25,6 +25,7 @@ public class Teste {
 	
 		levelStateMachine.addScenario(level);
 		levelStateMachine.addScenario(gameover);
+    
 		levelStateMachine.run("Level1");
 
 
