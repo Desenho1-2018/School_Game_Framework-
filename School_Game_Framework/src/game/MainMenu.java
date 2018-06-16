@@ -18,7 +18,7 @@ public class MainMenu extends Scenario{
 		
 		window = gameWindow;
 		scenarioName = name;
-		background = new GameImage("src//recursos//sprite//main_menu_white.jpg");
+		background = new GameImage("src//recursos//sprite//main_menu1.png");
 		arrow = new GameObject(270, 210, "src//recursos//sprite//arrow_button.png", 1, GameObjectType.OTHER);
 		
 	};
@@ -35,10 +35,10 @@ public class MainMenu extends Scenario{
 		
 			window.drawText("Customize Seu Titulo Aqui", 240, 140, Color.black, font);
 			selectOption();
-			window.update();
-			window.drawText("Start", 80, 420, Color.black, font);
-			window.drawText("Exit", 80, 480, Color.black, font);
 			
+			window.drawText("Start", 110, 445, Color.black, font);
+			window.drawText("Exit", 110, 505, Color.black, font);
+			window.update();
 		}
 	}
 
@@ -54,7 +54,7 @@ public class MainMenu extends Scenario{
     private void moveArrow() {
 		
 		if(sceneKeyboard.keyDown(Keyboard.DOWN_KEY)) {
-				if(option < 3 )
+				if(option < 1 )
 					option = option + 1;
 				
 		} else if(sceneKeyboard.keyDown(Keyboard.UP_KEY)) {
@@ -83,9 +83,8 @@ public class MainMenu extends Scenario{
     		if(option == 0){
     			nextScenario = "XABLAU";
     		}else if(option == 1){
-    			//exit
-    		}
-    		
+    			window.exit();
+    		}	
     	}
 	} 
 	
