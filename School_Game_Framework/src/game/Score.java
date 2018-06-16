@@ -1,38 +1,21 @@
 package game;
 
+import java.util.ArrayList;
+
 public class Score {
 
-	private String player = " ";
-	private String fase = " ";
-	private String mencao = " ";
-	private String password = " ";
+	private ArrayList<String> scoreType = new ArrayList<String>();
 	
-	
-	public String getPlayer() {
-		return player;
-	}
-	public void setPlayer(String player) {
-		this.player = player;
-	}
-	public String getFase() {
-		return fase;
-	}
-	public void setFase(String fase) {
-		this.fase = fase;
-	}
-	public String getMencao() {
-		return mencao;
-	}
-	public void setMencao(String mencao) {
-		this.mencao = mencao;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void addScoreType(String type) {
+		if(scoreType.size() <= 2) {
+			scoreType.add(type);
+		} else {
+			System.out.println("The number maximum of the types of score is 3");
+		}
 	}
 	
-	
+	public String getScoreType(int id) {
+		return scoreType.get(id);
+	}
 
 }

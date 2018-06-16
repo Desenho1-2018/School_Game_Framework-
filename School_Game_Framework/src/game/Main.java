@@ -62,6 +62,13 @@ public class Main {
 		
 		ScoreScreen score  = ScoreScreen.getScoreScreenInstance(gameWindow);
 		
+		Score testScore = new Score();
+		testScore.addScoreType("MM");
+		testScore.addScoreType("MS");
+		testScore.addScoreType("SS");
+		
+		ScoreScreen.addScore(testScore);
+		
 		levelStateMachine.addScenario(xablau);
 		levelStateMachine.addScenario(result);
 		levelStateMachine.addScenario(score);
