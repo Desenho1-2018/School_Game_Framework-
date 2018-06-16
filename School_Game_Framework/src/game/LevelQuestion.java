@@ -10,10 +10,11 @@ import jplay.Window;
 
 public class LevelQuestion extends Level{
 	
-	private Question question = null;
+	private ArrayList<Question> question = new ArrayList<Question>();
 	private GameObject arrow = null;
 	private Font font = new Font("Verdana", Font.BOLD, 25);
 	private int option = 0;
+	private int questionIndex = 0;
 	//private ResultScene resultInstance = null;
 	
 	public LevelQuestion(Window gameWindow, String name){
@@ -37,11 +38,11 @@ public class LevelQuestion extends Level{
 			moveArrow();
 			
 			//System.out.println(question.getStatement());
-			window.drawText(question.getStatement(), 90, 140, Color.white, font);
-			window.drawText(question.getAlternative(0).getAlternative(), 120, 200, Color.white, font);
-			window.drawText(question.getAlternative(1).getAlternative(), 120, 260, Color.white, font);
-			window.drawText(question.getAlternative(2).getAlternative(), 120, 320, Color.white, font);
-			window.drawText(question.getAlternative(3).getAlternative(), 120, 380, Color.white, font);
+			window.drawText(question.get(0).getStatement(), 90, 140, Color.white, font);
+			window.drawText(question.get(0).getAlternative(0).getAlternative(), 120, 200, Color.white, font);
+			window.drawText(question.get(0).getAlternative(1).getAlternative(), 120, 260, Color.white, font);
+			window.drawText(question.get(0).getAlternative(2).getAlternative(), 120, 320, Color.white, font);
+			window.drawText(question.get(0).getAlternative(3).getAlternative(), 120, 380, Color.white, font);
 			
 			selectOption();
 			window.update();
@@ -109,19 +110,23 @@ public class LevelQuestion extends Level{
 			switch(option){
 			  case 0:
 				waitATime();  
-				callResultScene(question.getAlternative(0).getValidate());
+				callResultScene(question.get(questionIndex).getAlternative(0).getValidate());
+				toNextQuestion();
 				 break;
 			  case 1:
 				waitATime();
-				callResultScene(question.getAlternative(1).getValidate());
+				callResultScene(question.get(questionIndex).getAlternative(1).getValidate());
+				toNextQuestion();
 				break;	
 			  case 2:
 				waitATime();
-				callResultScene(question.getAlternative(2).getValidate());
+				callResultScene(question.get(questionIndex).getAlternative(2).getValidate());
+				toNextQuestion();
 				break;
 			  case 3:
 				waitATime();
-				callResultScene(question.getAlternative(3).getValidate());
+				callResultScene(question.get(questionIndex).getAlternative(3).getValidate());
+				toNextQuestion();
 				break;	
 		  }	
 		}
@@ -140,9 +145,14 @@ public class LevelQuestion extends Level{
 	
 	}
 	
-	public void addQuestion(Question question) {
+	public void addQuestion(Question q) {
 		
-		this.question = question;
+		//this.question = question;
+		if(question.size() <= 2) {
+			question.add(q);
+		} else {
+			System.out.println("The number maximus of questions is 3");
+		}
 		
 	}
 	
@@ -153,6 +163,16 @@ public class LevelQuestion extends Level{
 		} else {
 			ResultScene.setResult(false);
 			this.nextScenario = "ResultScene";
+		}
+	}
+	
+	private void toNextQuestion() {
+		if(questionIndex < 3) {
+			questionIndex++;
+			//ResultScene.setNextLevel("XABLAU");
+		} else {
+			System.out.println("The number maximus of questions is 3");
+			//ResultScene.setNextLevel("ScoreScreen");
 		}
 	}
 	
