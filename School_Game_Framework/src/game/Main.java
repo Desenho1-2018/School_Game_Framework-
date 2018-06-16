@@ -60,10 +60,12 @@ public class Main {
 		ResultScene.setQuestionScenario("XABLAU");
 		ResultScene.setScoreScenario("NOTHING");
 		
+		ScoreScreen score  = ScoreScreen.getScoreScreenInstance(gameWindow);
 		
 		levelStateMachine.addScenario(xablau);
 		levelStateMachine.addScenario(result);
-		levelStateMachine.run("XABLAU");
+		levelStateMachine.addScenario(score);
+		levelStateMachine.run("ScoreScreen");
 		
 	}
 

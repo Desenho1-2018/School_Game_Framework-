@@ -1,6 +1,7 @@
 package game;
 
 public class Score {
+
 	private String player = " ";
 	private String fase = " ";
 	private String mencao = " ";
