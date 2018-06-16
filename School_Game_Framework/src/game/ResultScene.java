@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 import jplay.GameImage;
+import jplay.Keyboard;
 import jplay.Window;
 
 public class ResultScene extends Level{
@@ -11,6 +12,11 @@ public class ResultScene extends Level{
 	private static boolean result = true;
 	private Font font = new Font("Verdana", Font.BOLD, 25);
 	private static ResultScene instanceResult = null;
+	private static String previousScenario = null;
+	private static String nextScenario = null;
+	private static String scoreScenario = null;
+	private static String questionScenario = null;
+	private int resultPosition = 0;
 	
 	private ResultScene(Window gameWindow, boolean result) {
 
@@ -42,14 +48,14 @@ public class ResultScene extends Level{
 			drawObjects();
 			background.draw();
 			printResult(result);
-			window.update();
-			
-		}
+			pressEnter();
+			window.update();			
 		
+		}
 	}
 	
 	public String runScenario() {
-		
+		nextScenario = null;
 		this.initializeKeyboard();
 		this.updateScenario();
 		return nextScenario;
@@ -57,18 +63,25 @@ public class ResultScene extends Level{
 	}
 	
 	public void initializeKeyboard() {
-		//TO DO
+		if(window != null) {
+			sceneKeyboard = window.getKeyboard();
+		} else {
+			System.out.println("The keyboard needs a window to run. The window cannot be null");
+		}
+		sceneKeyboard.setBehavior(Keyboard.ENTER_KEY, Keyboard.DETECT_INITIAL_PRESS_ONLY);
 	}
 
 	private void printResultFalse() {
 		
 		window.drawText("ALGO DE ERRADO NÃO ESTÁ CERTO", 130, 230, Color.red, font);
+		window.drawText("enter", 130, 450, Color.WHITE, font);
 		
 	}
 	
 	private void printResultTrue() {
 		
 		window.drawText("ALGO DE CERTO NÃO ESTÁ ERRADO", 130, 230, Color.green, font);
+		window.drawText("enter", 130, 450, Color.WHITE, font);
 		
 	}
 	
@@ -94,5 +107,29 @@ public class ResultScene extends Level{
 	
 	public static void setResult(boolean result_of_question) {
 		result = result_of_question;
+	}
+	
+	public static void setQuestionScenario(String level) {
+		questionScenario = level;
+	}
+	
+	public static void setScoreScenario(String level) {
+		scoreScenario = level;
+	}
+
+	public static void setNextLevel(String level) {
+		nextScenario = level;
+	}
+	
+	private void pressEnter() {
+		if(sceneKeyboard.keyDown(Keyboard.ENTER_KEY)) {
+			if(resultPosition < 2) {
+				resultPosition++;
+				nextScenario = questionScenario;
+			} else {
+				resultPosition = 0;
+				nextScenario = scoreScenario;
+				}
+		  }
 	}
 }
