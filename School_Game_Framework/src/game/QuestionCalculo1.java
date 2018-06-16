@@ -25,17 +25,17 @@ public class QuestionCalculo1 extends Level {
 		for(i=0;i<3;i++) {
       		if(numberQuestion== 1){
 		    	QuestionColletion aquestion= new QuestionColletion();
-			    question answer0=new question(50, 50, "src//recursos//sprite//question//limite.jpeg");
+			    question answer0=new question2(50, 50, "src//recursos//sprite//question//limite.jpeg");
 			    aquestion.setquestion(answer0);
-			    question answer1=new question(100, 300, "src//recursos//sprite//question//27.png");
+			    question answer1=new question2(100, 300, "src//recursos//sprite//question//27.png");
 			    aquestion.setquestion(answer1);
-			    question answer5=new question(100, 350, "src//recursos//sprite//question//36.png");
+			    question answer5=new question2(100, 350, "src//recursos//sprite//question//36.png");
 			    aquestion.setquestion(answer5);
-			    question limit=new question(50, 50, "src//recursos//sprite//question//limite.jpeg");
+			    question limit=new question2(50, 50, "src//recursos//sprite//question//limite.jpeg");
 			    aquestion.setquestion(limit);
-			    question answer2= new question(100, 400, "src//recursos//sprite//question//45.png");
+			    question answer2= new question2(100, 400, "src//recursos//sprite//question//45.png");
 			    aquestion.setquestion(answer2);
-			    question answer3 = new question(100, 450, "src//recursos//sprite//question//54.png");
+			    question answer3 = new question2(100, 450, "src//recursos//sprite//question//54.png");
 			    aquestion.setquestion(answer3);
 			    printquestiontela(aquestion);
 			
@@ -75,7 +75,7 @@ public class QuestionCalculo1 extends Level {
 	    	
 	    }
 	public QuestionColletion add(int x, int y, String s, QuestionColletion aquestion3) {
-		question question1=new question(x,y,s);
+		question2 question1=new question2(x,y,s);
 		aquestion3.setquestion(question1);
 		return  aquestion3;
 		
