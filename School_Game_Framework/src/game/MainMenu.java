@@ -18,7 +18,7 @@ public class MainMenu extends Scenario{
 		
 		window = gameWindow;
 		scenarioName = name;
-		background = new GameImage("src//recursos//sprite//main_menu_white.jpeg");
+		background = new GameImage("src//recursos//sprite//main_menu_white.jpg");
 		arrow = new GameObject(270, 210, "src//recursos//sprite//arrow_button.png", 1, GameObjectType.OTHER);
 		
 	};
@@ -36,6 +36,8 @@ public class MainMenu extends Scenario{
 			window.drawText("Customize Seu Titulo Aqui", 240, 140, Color.black, font);
 			selectOption();
 			window.update();
+			window.drawText("Start", 80, 420, Color.black, font);
+			window.drawText("Exit", 80, 480, Color.black, font);
 			
 		}
 	}
@@ -62,11 +64,11 @@ public class MainMenu extends Scenario{
 
 		switch (option) {
 		  case 0:
-			arrow.y = 170;
+			arrow.y = 420;
 			arrow.x = 70;
 			 break;
 		  case 1:
-			arrow.y = 230;
+			arrow.y = 480;
 			arrow.x = 70;
 			 break;
 		  default:
