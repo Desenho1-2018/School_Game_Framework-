@@ -11,25 +11,53 @@ public class Main {
 		
 		LevelQuestion xablau = new LevelQuestion(gameWindow, "XABLAU");
 		
-		Question teste = new Question("TESTE");
+		Question teste1 = new Question("TESTE NUMERO 1");
 		
-		Alternative testeA = new Alternative(1,"TESTE A",false);
-		Alternative testeB = new Alternative(2,"TESTE B",false);
-		Alternative testeC = new Alternative(3,"TESTE C",true);
-		Alternative testeD = new Alternative(4,"TESTE D",false);
+		Alternative testeA1 = new Alternative(1,"TESTE A",false);
+		Alternative testeB1 = new Alternative(2,"TESTE B",false);
+		Alternative testeC1 = new Alternative(3,"TESTE C",true);
+		Alternative testeD1 = new Alternative(4,"TESTE D",false);
 
 
-		teste.addAlternative(testeA);
-		teste.addAlternative(testeB);
-		teste.addAlternative(testeC);
-		teste.addAlternative(testeD);
+		teste1.addAlternative(testeA1);
+		teste1.addAlternative(testeB1);
+		teste1.addAlternative(testeC1);
+		teste1.addAlternative(testeD1);
 
-		xablau.addQuestion(teste);
+		Question teste2 = new Question("TESTE NUMERO 2");
+		
+		Alternative testeA2 = new Alternative(1,"TESTE A",false);
+		Alternative testeB2 = new Alternative(2,"TESTE B",false);
+		Alternative testeC2 = new Alternative(3,"TESTE C",true);
+		Alternative testeD2 = new Alternative(4,"TESTE D",false);
+
+
+		teste2.addAlternative(testeA2);
+		teste2.addAlternative(testeB2);
+		teste2.addAlternative(testeC2);
+		teste2.addAlternative(testeD2);
+		
+		Question teste3 = new Question("TESTE NUMERO 3");
+		
+		Alternative testeA3 = new Alternative(1,"TESTE A",false);
+		Alternative testeB3 = new Alternative(2,"TESTE B",false);
+		Alternative testeC3 = new Alternative(3,"TESTE C",true);
+		Alternative testeD3 = new Alternative(4,"TESTE D",false);
+
+
+		teste3.addAlternative(testeA3);
+		teste3.addAlternative(testeB3);
+		teste3.addAlternative(testeC3);
+		teste3.addAlternative(testeD3);
+		
+		
+		xablau.addQuestion(teste1);
+		xablau.addQuestion(teste2);
+		xablau.addQuestion(teste3);
 		
 		
 		ResultScene result = ResultScene.getResultInstance(gameWindow, false);
 		MainMenu mainmenu = new MainMenu(gameWindow, "MainMenu");
-		
 		levelStateMachine.addScenario(xablau);
 		levelStateMachine.addScenario(result);
 		levelStateMachine.addScenario(mainmenu);
