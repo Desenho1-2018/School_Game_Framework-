@@ -11,7 +11,6 @@ import jplay.Window;
 
 public class LevelCollect extends TemplateCollectLevel {
 	private Window window;
-	private String nameScenario;
 	private GameImage background;
 	private ArrayList<GameObject> object = new ArrayList<GameObject>();
 	private Keyboard keyboard;
@@ -24,47 +23,40 @@ public class LevelCollect extends TemplateCollectLevel {
 
 	public LevelCollect(Window gameWindow, String name) {
 		this.window = gameWindow;
-		this.nameScenario = name;
+		scenarioName = name;
 		addPlayer(100, 100, "src//recursos//sprite//jogador2.png", 20, window);
 	}
-	@Override
 	public void createBackground(String imagePath) {
 		this.background = new GameImage(imagePath);
 	}
-	@Override
 	public void createObject(GameObject obj) {
 		this.object.add(obj);
 	}
-	@Override
 	public void createTime(int hour, int minute, int second, int x, int y, Boolean crescentTime) {
 		this.time = new Time(hour, minute, second, x, y, crescentTime);
 	}
-	@Override
 	protected void defeatScenario(String scenarioDefeat) {
 		this.defeat = scenarioDefeat;
 	}
 
-	@Override
 	protected void winScenario(String scenarioWin) {
 		this.win = scenarioWin;
 	}
 	
-	@Override
 	protected void enemySpawn(GameObject enemy) {
 		if(hasEnemies == true) {
 			this.object.add(enemy);
 		}
 		
 	}
-	
-	@Override
 	public String runScenario() {
+		initializeKeyboard();
+		updateScenario();
 		System.out.println("dentro do run " + nextScenario);
 		return nextScenario;
-
 	}
-	@Override
-	public void drawLevel() {
+	
+	public void updateScenario() {
 		boolean coletaItem = false;
 		time.setColor(Color.ORANGE);
 		time.setFont(new Font("sansserif", Font.TRUETYPE_FONT, 15));
