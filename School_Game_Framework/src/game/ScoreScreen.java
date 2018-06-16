@@ -11,9 +11,12 @@ public class ScoreScreen extends Level {
 
 	private static boolean result = true;
 	private Font font = new Font("Verdana", Font.BOLD, 25);
+	private Font fontResult = new Font("Verdana", Font.BOLD, 40);
 	private static ScoreScreen instanceScoreScreen = null;
 	private static String previousScenario = null;
 	private static String nextScenario = null;
+	private static String nextScreen = null;
+	private static Score score = null;
 
 	private int resultPosition = 0;
 	
@@ -44,6 +47,10 @@ public class ScoreScreen extends Level {
 			
 			drawObjects();
 			background.draw();
+			window.drawText("RESULTADO", 300, 200, Color.white, font);
+			window.drawText("valor", 315, 300, Color.white, fontResult);
+			window.drawText("Press Enter", 100, 550, Color.white, font);
+			pressEnter();
 			window.update();			
 		
 		}
@@ -88,7 +95,12 @@ public class ScoreScreen extends Level {
 	
 	private void pressEnter() {
 		if(sceneKeyboard.keyDown(Keyboard.ENTER_KEY)) {
-			//Do something
+			 nextScenario = nextScreen;
 		  }
 	}
+	
+	public static void setNextScreen(String screen) {
+		nextScreen = screen;
+	}
+	
 }
