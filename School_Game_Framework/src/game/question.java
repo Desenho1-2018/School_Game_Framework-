@@ -1,7 +1,7 @@
 
 	package game;
 
-	public class question  extends  GameObject{
+	public class question2  extends  GameObject{
 		boolean resposta;
 
 		public question(int x, int y, String spritePath) {
