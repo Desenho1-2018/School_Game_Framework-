@@ -57,6 +57,8 @@ public class Main {
 		
 		
 		ResultScene result = ResultScene.getResultInstance(gameWindow, false);
+		ResultScene.setQuestionScenario("XABLAU");
+		ResultScene.setScoreScenario("NOTHING");
 		
 		
 		levelStateMachine.addScenario(xablau);

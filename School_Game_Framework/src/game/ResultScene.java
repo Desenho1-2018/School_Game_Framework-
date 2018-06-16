@@ -14,6 +14,9 @@ public class ResultScene extends Level{
 	private static ResultScene instanceResult = null;
 	private static String previousScenario = null;
 	private static String nextScenario = null;
+	private static String scoreScenario = null;
+	private static String questionScenario = null;
+	private int resultPosition = 0;
 	
 	private ResultScene(Window gameWindow, boolean result) {
 
@@ -106,17 +109,27 @@ public class ResultScene extends Level{
 		result = result_of_question;
 	}
 	
-	public static void setPreviousLevel(String level) {
-		previousScenario = level;
+	public static void setQuestionScenario(String level) {
+		questionScenario = level;
 	}
 	
+	public static void setScoreScenario(String level) {
+		scoreScenario = level;
+	}
+
 	public static void setNextLevel(String level) {
 		nextScenario = level;
 	}
 	
 	private void pressEnter() {
 		if(sceneKeyboard.keyDown(Keyboard.ENTER_KEY)) {
-			nextScenario = "XABLAU";
+			if(resultPosition < 2) {
+				resultPosition++;
+				nextScenario = questionScenario;
+			} else {
+				resultPosition = 0;
+				nextScenario = scoreScenario;
+				}
 		  }
 	}
 }
