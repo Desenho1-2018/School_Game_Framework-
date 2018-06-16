@@ -8,9 +8,8 @@ import jplay.GameImage;
 import jplay.Keyboard;
 import jplay.Window;
 
-public class MainMenu extends Level{
+public class MainMenu extends Scenario{
 	
-	private String title = null;
 	private GameObject arrow = null;
 	private Font font = new Font("Verdana", Font.BOLD, 25);
 	private int option = 0;
@@ -34,7 +33,7 @@ public class MainMenu extends Level{
 			arrow.draw();
 			moveArrow();
 		
-			window.drawText("Titulo", 90, 140, Color.white, font);
+			window.drawText("Customize Seu Titulo Aqui", 240, 140, Color.black, font);
 			selectOption();
 			window.update();
 			
@@ -78,7 +77,14 @@ public class MainMenu extends Level{
 	}
 	
     private void selectOption() {
-    	//TODO
+    	if(sceneKeyboard.keyDown(Keyboard.ENTER_KEY)){	
+    		if(option == 0){
+    			nextScenario = "XABLAU";
+    		}else if(option == 1){
+    			//exit
+    		}
+    		
+    	}
 	} 
 	
     public void initializeKeyboard() {
