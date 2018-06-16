@@ -27,7 +27,7 @@ public class Teste {
 		level.winScenario("NextLevel");
 		level.initializeLevel();
 	
-		levelStateMachine.run("GameOver");
+		levelStateMachine.run("Level1");
 
 
 	}

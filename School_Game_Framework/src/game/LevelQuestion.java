@@ -28,21 +28,19 @@ public class LevelQuestion extends Level{
 	};
 	
 	protected void updateScenario() {
-		
+				
 		while(nextScenario == null) {
 			
-			drawObjects();
 			background.draw();
 			
 			arrow.draw();
 			moveArrow();
-			
-			//System.out.println(question.getStatement());
-			window.drawText(question.get(0).getStatement(), 90, 140, Color.white, font);
-			window.drawText(question.get(0).getAlternative(0).getAlternative(), 120, 200, Color.white, font);
-			window.drawText(question.get(0).getAlternative(1).getAlternative(), 120, 260, Color.white, font);
-			window.drawText(question.get(0).getAlternative(2).getAlternative(), 120, 320, Color.white, font);
-			window.drawText(question.get(0).getAlternative(3).getAlternative(), 120, 380, Color.white, font);
+		
+			window.drawText(question.get(questionIndex).getStatement(), 90, 140, Color.white, font);
+			window.drawText(question.get(questionIndex).getAlternative(0).getAlternative(), 120, 200, Color.white, font);
+			window.drawText(question.get(questionIndex).getAlternative(1).getAlternative(), 120, 260, Color.white, font);
+			window.drawText(question.get(questionIndex).getAlternative(2).getAlternative(), 120, 320, Color.white, font);
+			window.drawText(question.get(questionIndex).getAlternative(3).getAlternative(), 120, 380, Color.white, font);
 			
 			selectOption();
 			window.update();
@@ -52,7 +50,7 @@ public class LevelQuestion extends Level{
 	}
 
 	public String runScenario() {
-		
+		nextScenario = null;
 		initializeKeyboard();
 		this.updateScenario();
 		//this.playerInstance.setPreviousLevel("XABLAU");
@@ -147,7 +145,6 @@ public class LevelQuestion extends Level{
 	
 	public void addQuestion(Question q) {
 		
-		//this.question = question;
 		if(question.size() <= 2) {
 			question.add(q);
 		} else {
@@ -157,7 +154,9 @@ public class LevelQuestion extends Level{
 	}
 	
 	private void callResultScene(boolean result) {
+	
 		if(result == true) {
+			System.out.println(result);
 			ResultScene.setResult(true);
 			this.nextScenario = "ResultScene";
 		} else {
@@ -169,10 +168,10 @@ public class LevelQuestion extends Level{
 	private void toNextQuestion() {
 		if(questionIndex < 3) {
 			questionIndex++;
-			//ResultScene.setNextLevel("XABLAU");
+			ResultScene.setNextLevel(null);
 		} else {
 			System.out.println("The number maximus of questions is 3");
-			//ResultScene.setNextLevel("ScoreScreen");
+			ResultScene.setNextLevel(null);
 		}
 	}
 	
