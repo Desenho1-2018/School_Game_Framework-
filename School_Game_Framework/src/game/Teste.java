@@ -12,9 +12,6 @@ public class Teste {
 		GameOverMenu gameover = new GameOverMenu(gameWindow, "GameOver");
 		
 		
-		levelStateMachine.addScenario(level);
-		levelStateMachine.addScenario(gameover);
-		
 		String backgroundImage = "src//recursos//tiles//planofundo.png";
 		GameObject obj1 = new GameObject(150, 200, "src//recursos//sprite//livro.gif", 1, GameObjectType.REFERENCE_ITEM);
 		GameObject obj2 = new GameObject(660, 500, "src//recursos//sprite//canudol.gif", 1, GameObjectType.REFERENCE_ITEM);
@@ -25,9 +22,10 @@ public class Teste {
 		level.createObject(obj2);
 		level.defeatScenario("GameOver");
 		level.winScenario("NextLevel");
-		level.initializeLevel();
 	
-		levelStateMachine.run("GameOver");
+		levelStateMachine.addScenario(level);
+		levelStateMachine.addScenario(gameover);
+		levelStateMachine.run("Level1");
 
 
 	}

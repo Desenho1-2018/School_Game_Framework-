@@ -2,10 +2,11 @@ package game;
 
 public abstract class TemplateCollectLevel extends Level {
 	
-	public final void initializeLevel() {
+	public String runScenario() {
 		initializeKeyboard();
-		drawLevel();
-		runScenario();
+		updateScenario();
+		System.out.println("dentro do run " + nextScenario);
+		return nextScenario;
 	}
 
 	protected abstract void createBackground(String imagePath);
@@ -19,10 +20,8 @@ public abstract class TemplateCollectLevel extends Level {
 	protected abstract void winScenario(String nextScenario);
 	
 	protected abstract void initializeKeyboard();
-
-	protected abstract void drawLevel();
-
-	public abstract String runScenario();
+	
+	public abstract void updateScenario();
 
 	protected abstract void enemySpawn(GameObject enemy);
 	
