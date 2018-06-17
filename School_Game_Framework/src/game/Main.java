@@ -10,6 +10,7 @@ public class Main {
 		LevelStateMachine levelStateMachine = new LevelStateMachine();
 		
 		LevelQuestion xablau = new LevelQuestion(gameWindow, "XABLAU");
+		Password password = new Password(gameWindow, "PasswordMenu");
 		
 		Question teste1 = new Question("TESTE NUMERO 1");
 		
