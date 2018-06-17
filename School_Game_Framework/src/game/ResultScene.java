@@ -16,7 +16,7 @@ public class ResultScene extends Level{
 
 		window = gameWindow;
 		scenarioName = "ResultScene";
-		this.result = result;
+		//this.result = result;
 		background = new GameImage("src//recursos//sprite//lousa.jpeg");
 		
 	}
@@ -28,7 +28,7 @@ public class ResultScene extends Level{
 			instanceResult = new ResultScene(gameWindow, result);
 			return instanceResult;
 		} else {
-			instanceResult.setResult(result);
+			//instanceResult.setResult(result);
 			return instanceResult;
 		}
 		
@@ -62,13 +62,13 @@ public class ResultScene extends Level{
 
 	private void printResultFalse() {
 		
-		window.drawText("ALGO DE ERRADO N√O EST¡ CERTO", 130, 230, Color.red, font);
+		window.drawText("ALGO DE ERRADO N√ÉO EST√Å CERTO", 130, 230, Color.red, font);
 		
 	}
 	
 	private void printResultTrue() {
 		
-		window.drawText("ALGO DE CERTO N√O EST¡ ERRADO", 130, 230, Color.green, font);
+		window.drawText("ALGO DE CERTO N√ÉO EST√Å ERRADO", 130, 230, Color.green, font);
 		
 	}
 	

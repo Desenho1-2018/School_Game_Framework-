@@ -37,5 +37,42 @@ public class Password extends Scenario{
 		
 	}
    
+   protected void updateScenario() {
+		
+		while(nextScenario == null) {
+		
+			this.moveSelector();
+			drawObjects();	
+			this.selector.draw();
+			this.drawLettersPassword();
+			this.keyboardControll();
+			
+			if(password.length() == 6){
+				this.flagComplete = true;
+			}
+			
+			if(flagComplete) {
+				enterToEnter.draw();
+			}
+			
+			window.update();
+		}
+	}
+   
+   protected void initializeKeyboard() {
+		
+		if(window != null) {
+			sceneKeyboard = window.getKeyboard();
+		} else {
+			System.out.println("The keyboard needs a window to run. The window cannot be null");
+		}
+		sceneKeyboard.setBehavior(Keyboard.DOWN_KEY, Keyboard.DETECT_INITIAL_PRESS_ONLY); 
+		sceneKeyboard.setBehavior(Keyboard.UP_KEY, Keyboard.DETECT_INITIAL_PRESS_ONLY); 
+		sceneKeyboard.setBehavior(Keyboard.LEFT_KEY, Keyboard.DETECT_INITIAL_PRESS_ONLY); 
+		sceneKeyboard.setBehavior(Keyboard.RIGHT_KEY, Keyboard.DETECT_INITIAL_PRESS_ONLY); 
+		sceneKeyboard.setBehavior(Keyboard.ESCAPE_KEY, Keyboard.DETECT_INITIAL_PRESS_ONLY); 
+		sceneKeyboard.setBehavior(Keyboard.ENTER_KEY, Keyboard.DETECT_INITIAL_PRESS_ONLY);
+	
+	}
    
 }
