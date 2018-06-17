@@ -1,17 +1,22 @@
 package game;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.util.ArrayList;
 import jplay.GameImage;
 import jplay.Keyboard;
 import jplay.Window;
 
 public class Password extends Scenario{
-   
+	
+	private Font font = new Font("Verdana", Font.BOLD, 25);
 	private GameObject selector = null;
 	private GameObject enterToEnter = null;
 	private Boolean flagComplete = false;
 	private GameObject[] letter = new GameObject[6];
 	private int letter_pos = 1;
-	private String password = "";	
+	private String password = "";
+	private ArrayList<String> letter_password = new ArrayList<String>();
 	
    public Password(Window gameWindow, String name) {
 		window = gameWindow;
@@ -178,7 +183,7 @@ public class Password extends Scenario{
    private void goPassword() {
 		
 	 //Aqui colocar a senha recebida ao final de uma determinada fase que o leverá ao próximo estágio.
-		
+	 //Chamar a variável do ArrayList letter_password que contem a senha selecionada pelo usuário
 	}
    
    private void selectLetter() {
@@ -186,132 +191,159 @@ public class Password extends Scenario{
 		if(selector.x == 150 && selector.y == 300 ) {
 			//System.out.println("a");
 			this.addLetterPassword("a", "src//recursos//sprite//password//a.png");
+			this.letter_password.add("a");
 		}
 
 		if(selector.x == 186 && selector.y == 300) {
 			//System.out.println("b");
 			this.addLetterPassword("b", "src//recursos//sprite//password//b.png");
+			this.letter_password.add("b");
 		}
 		
 		if(selector.x == 222 && selector.y == 300) {
 			//System.out.println("c");
 			this.addLetterPassword("c", "src//recursos//sprite//password//c.png");
+			this.letter_password.add("c");
 		}
 		
 		if(selector.x == 258 && selector.y == 300) {
 			//System.out.println("d");
 			this.addLetterPassword("d", "src//recursos//sprite//password//d.png");
+			this.letter_password.add("d");
 		}
 		
 		if(selector.x == 294 && selector.y == 300) {
 			//System.out.println("e");
 			this.addLetterPassword("e", "src//recursos//sprite//password//e.png");
+			this.letter_password.add("e");
 		}
 		
 		if(selector.x == 330 && selector.y == 300) {
 			//System.out.println("f");	
 			this.addLetterPassword("f", "src//recursos//sprite//password//f.png");
+			this.letter_password.add("f");
 		}
 		
 		if(selector.x == 366 && selector.y == 300) {
 			//System.out.println("g");
 			this.addLetterPassword("g", "src//recursos//sprite//password//g.png");
+			this.letter_password.add("g");
 		}
 		
 		if(selector.x == 402 && selector.y == 300) {
 			//System.out.println("h");
 			this.addLetterPassword("h", "src//recursos//sprite//password//h.png");
+			this.letter_password.add("h");
+			
 		}
 		
 		if(selector.x == 438 && selector.y == 300) {
 			//System.out.println("i");
 			this.addLetterPassword("i", "src//recursos//sprite//password//i.png");
+			this.letter_password.add("i");
 		}
 		
 		if(selector.x == 474 && selector.y == 300) {
 			//System.out.println("j");
 			this.addLetterPassword("j", "src//recursos//sprite//password//j.png");
+			this.letter_password.add("j");
 		}
 		
 		if(selector.x == 510 && selector.y == 300) {
 			//System.out.println("k");
 			this.addLetterPassword("k", "src//recursos//sprite//password//k.png");
+			this.letter_password.add("k");
 		}
 		
 		if(selector.x == 546 && selector.y == 300) {
 			//System.out.println("l");
 			this.addLetterPassword("l", "src//recursos//sprite//password//l.png");
+			this.letter_password.add("l");
 		}
 		
 		if(selector.x == 582 && selector.y == 300) {
 			//System.out.println("m");
 			this.addLetterPassword("m", "src//recursos//sprite//password//m.png");
+			this.letter_password.add("m");
 		}
 		
 		if(selector.x == 150 && selector.y == 336) {
 			//System.out.println("n");
 			this.addLetterPassword("n", "src//recursos//sprite//password//n.png");
+			this.letter_password.add("n");
 		}
 		
 		if(selector.x == 186 && selector.y == 336) {
 			//System.out.println("o");
 			this.addLetterPassword("o", "src//recursos//sprite//password//o.png");
+			this.letter_password.add("o");
 		}
 		
 		if(selector.x == 222 && selector.y == 336) {
 			//System.out.println("p");
 			this.addLetterPassword("p", "src//recursos//sprite//password//p.png");
+			this.letter_password.add("p");
 		}
 		
 		if(selector.x == 258 && selector.y == 336) {
 			//System.out.println("q");
 			this.addLetterPassword("q", "src//recursos//sprite//password//q.png");
+			this.letter_password.add("q");
 		}
 		
 		if(selector.x == 294 && selector.y == 336) {
 			//System.out.println("r");
 			this.addLetterPassword("r", "src//recursos//sprite//password//r.png");
+			this.letter_password.add("r");
 		}
 		
 		if(selector.x == 330 && selector.y == 336) {
 			//System.out.println("s");
 			this.addLetterPassword("s", "src//recursos//sprite//password//s.png");
+			this.letter_password.add("s");
 		}
 		
 		if(selector.x == 366 && selector.y == 336) {
 			//System.out.println("t");
 			this.addLetterPassword("t", "src//recursos//sprite//password//t.png");
+			this.letter_password.add("t");
 		}
 		
 		if(selector.x == 402 && selector.y == 336) {
 			//System.out.println("u");
 			this.addLetterPassword("u", "src//recursos//sprite//password//u.png");
+			this.letter_password.add("u");
 		}
 		
 		if(selector.x == 438 && selector.y == 336) {
 			//System.out.println("v");
 			this.addLetterPassword("v", "src//recursos//sprite//password//v.png");
+			this.letter_password.add("v");
 		}
 		
 		
 		if(selector.x == 474 && selector.y == 336) {
 			//System.out.println("w");
 			this.addLetterPassword("w", "src//recursos//sprite//password//w.png");
+			this.letter_password.add("w");
 		}
 		
 		if(selector.x == 510 && selector.y == 336) {
 			//System.out.println("x");
 			this.addLetterPassword("x", "src//recursos//sprite//password//x.png");
+			this.letter_password.add("x");
 		}
 		
 		if(selector.x == 546 && selector.y == 336) {
 			//System.out.println("y");
 			this.addLetterPassword("y", "src//recursos//sprite//password//y.png");
+			this.letter_password.add("y");
 		}
 		
 		if(selector.x == 582 && selector.y == 336) {
 			//System.out.println("z");
 			this.addLetterPassword("z", "src//recursos//sprite//password//z.png");
+			this.letter_password.add("z");
 		}
 		
 	}
@@ -330,6 +362,11 @@ public class Password extends Scenario{
 		for(int i = 0; i < 6; i++) {
 			letter[i].draw();
 		}
+	}
+	
+    public void printPassword(String password) {
+    	
+		window.drawText(password, 130, 230, Color.red, font);
 	}
 
    
