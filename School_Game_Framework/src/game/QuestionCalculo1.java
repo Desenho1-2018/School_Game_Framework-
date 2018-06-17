@@ -43,7 +43,7 @@ public class QuestionCalculo1 extends Level {
 	
 
 	//Atualiza os quadros da cena
-	protected void updateScenario() {
+	protected void updateScenario(QuestionColletion aquestion) {
 		
 		while(nextScenario == null) {
 		
@@ -53,7 +53,7 @@ public class QuestionCalculo1 extends Level {
 			//fica como TO DO o que fazer para generalizar objetos desse tipo tamb�m.
 			arrow.draw();
 			moveArrow();
-			selectOption(numberQuestion);
+			selectOption2(aquestion);
 			
 			window.update();	
 		}
@@ -73,10 +73,10 @@ public class QuestionCalculo1 extends Level {
 	
 	}
 	
-	public String runScenario() {
+	public String runScenario(QuestionColletion aquestion) {
 	
 		initializeKeyboard();
-		updateScenario();
+		updateScenario(aquestion);
 		System.out.println(nextScenario);
 		this.playerInstance.setPreviousLevel("LevelC1");
 		return nextScenario;
@@ -122,19 +122,6 @@ public class QuestionCalculo1 extends Level {
 			waitAtime();
 			nextScenario = "BattleScene";
 			}
-		}
-	private void selectOption(int numberQuestion) {
-	
-		if(sceneKeyboard.keyDown(Keyboard.ENTER_KEY)) {
-		  if(numberQuestion == 1){
-			  SelectOption2(this.aquestion);
-			}else if(numberQuestion==2) {
-			  SelectOption2(this.aquestion2);
-		    }else if(numberQuestion==3){
-		      SelectOption2(this.aquestion3);
-		    }
-		
-			  }
 		}
 	
 	private void waitAtime() {
