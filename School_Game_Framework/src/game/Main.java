@@ -10,6 +10,7 @@ public class Main {
 		LevelStateMachine levelStateMachine = new LevelStateMachine();
 		
 		LevelQuestion xablau = new LevelQuestion(gameWindow, "XABLAU");
+		Password password = new Password(gameWindow, "PasswordMenu");
 		
 		Question teste = new Question("TESTE");
 		
@@ -32,6 +33,7 @@ public class Main {
 		
 		levelStateMachine.addScenario(xablau);
 		levelStateMachine.addScenario(result);
+		levelStateMachine.addScenario(password);
 		levelStateMachine.run("XABLAU");
 		
 	}
