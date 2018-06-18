@@ -5,7 +5,6 @@ public abstract class TemplateCollectLevel extends Level {
 	public String runScenario() {
 		initializeKeyboard();
 		updateScenario();
-		System.out.println("dentro do run " + nextScenario);
 		return nextScenario;
 	}
 

@@ -66,11 +66,11 @@ public class LevelCollect extends TemplateCollectLevel {
 			time.draw();
 			playerInstance.draw();
 			playerInstance.setCollisionType(this.playerCollision());
-			for (GameObject obj : object) {
-				obj.draw();
-				if (playerInstance.collided(obj)) {
-					obj.hide();
-					coletaItem = true;
+			for (int i = 0; i < object.size(); i++) {
+				object.get(i).draw();
+				if (playerInstance.collided(object.get(i))) {
+					object.get(i).hide();
+					coletaItem = (i + 1) == object.size() ? true : false;
 				}
 				if (coletaItem == true) {
 					nextScenario = win;
