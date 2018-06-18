@@ -16,6 +16,8 @@ public class ResultScene extends Level{
 	private static String nextScenario = null;
 	private static String scoreScenario = null;
 	private static String questionScenario = null;
+	private static String correctAnswer = "RESPOSTA CERTA!!!";
+	private static String wrongAnswer = "RESPOSTA ERRADA!!!";
 	private int resultPosition = 0;
 	
 	private ResultScene(Window gameWindow, boolean result) {
@@ -73,14 +75,14 @@ public class ResultScene extends Level{
 
 	private void printResultFalse() {
 		
-		window.drawText("ALGO DE ERRADO NÃO ESTÁ CERTO", 130, 230, Color.red, font);
+		window.drawText(wrongAnswer, 130, 230, Color.red, font);
 		window.drawText("enter", 130, 450, Color.WHITE, font);
 		
 	}
 	
 	private void printResultTrue() {
 
-		window.drawText("ALGO DE CERTO NÃO ESTÁ ERRADO", 130, 230, Color.green, font);
+		window.drawText(correctAnswer, 130, 230, Color.green, font);
 		window.drawText("enter", 130, 450, Color.WHITE, font);
 		
 	}
@@ -125,6 +127,7 @@ public class ResultScene extends Level{
 	private void pressEnter() {
 		if(sceneKeyboard.keyDown(Keyboard.ENTER_KEY)) {
 			if(resultPosition < 2) {
+				System.out.println(resultPosition);
 				resultPosition++;
 				nextScenario = questionScenario;
 			} else {
@@ -133,4 +136,13 @@ public class ResultScene extends Level{
 				}
 		  }
 	}
+	
+	public static void setCorrectAnswerMessage(String correctMessage) {
+		correctAnswer = correctMessage;
+	}
+	
+	public static void setWrongMessage(String wrongMessage) {
+		wrongAnswer = wrongMessage;
+	}
+	
 }

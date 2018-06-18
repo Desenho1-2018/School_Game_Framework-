@@ -9,7 +9,7 @@ public class Main {
 		Window gameWindow = new Window(800, 600);
 		LevelStateMachine levelStateMachine = new LevelStateMachine();
 		
-		LevelQuestion xablau = new LevelQuestion(gameWindow, "XABLAU");
+		LevelQuestion xablau = new LevelQuestion(gameWindow, "QuestionTeste");
 		Password password = new Password(gameWindow, "PasswordMenu");
 		
 		Question teste1 = new Question("TESTE NUMERO 1");
@@ -60,10 +60,26 @@ public class Main {
 		ResultScene result = ResultScene.getResultInstance(gameWindow, false);
 
 		MainMenu mainmenu = new MainMenu(gameWindow, "MainMenu");
+		
+		ScoreScreen score = ScoreScreen.getScoreScreenInstance(gameWindow);
+		Score testScore = new Score();
+		testScore.addScoreType("MM");
+		testScore.addScoreType("MS");
+		testScore.addScoreType("SS");
+		
+		ScoreScreen.addScore(testScore);
+		
+		ResultScene.setQuestionScenario("QuestionTeste");
+		ResultScene.setScoreScenario("ScoreScreen");
+		ResultScene.setCorrectAnswerMessage("VOCE ACERTOU!");
+		ResultScene.setWrongMessage("VOCE ERROU!");
+		
 		levelStateMachine.addScenario(xablau);
 		levelStateMachine.addScenario(result);
 		levelStateMachine.addScenario(mainmenu);
-		levelStateMachine.run("MainMenu");
+		levelStateMachine.addScenario(score);
+		
+		levelStateMachine.run("QuestionTeste");
 		
 	}
 
