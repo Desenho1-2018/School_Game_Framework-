@@ -1,4 +1,4 @@
-package game;
+package schoolGameFramework;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -9,16 +9,19 @@ import jplay.Window;
 
 public class ScoreScreen extends Level {
 
+	@SuppressWarnings("unused")
 	private static boolean result = true;
 	private Font font = new Font("Verdana", Font.BOLD, 25);
 	private Font fontResult = new Font("Verdana", Font.BOLD, 40);
 	private static ScoreScreen instanceScoreScreen = null;
+	@SuppressWarnings("unused")
 	private static String previousScenario = null;
 	private static String nextScenario = null;
 	private static String nextScreen = null;
 	private static Score score = null;
 	private static int scoreIndex = 0;
 
+	@SuppressWarnings("unused")
 	private int resultPosition = 0;
 	
 	private ScoreScreen(Window gameWindow) {
@@ -80,6 +83,7 @@ public class ScoreScreen extends Level {
 
 	
 	
+	@SuppressWarnings("unused")
 	private static void waitATime(int time) {
 		try {
 			Thread.sleep(time);

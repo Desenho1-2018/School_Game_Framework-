@@ -1,4 +1,4 @@
-package game;
+package schoolGameFramework;
 
 import jplay.GameImage;
 import jplay.Keyboard;

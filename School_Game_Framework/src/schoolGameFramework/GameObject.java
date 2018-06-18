@@ -1,4 +1,4 @@
-package game;
+package schoolGameFramework;
 
 import jplay.Sprite;
 
@@ -9,6 +9,7 @@ public class GameObject extends Sprite{
 	private String spritePath = "";
 	protected static GameObjectType type;
 	
+	@SuppressWarnings("static-access")
 	public GameObject(int x, int y, String spritePath, int spriteDivision, GameObjectType objtype){
 	
 		super((spritePath), spriteDivision); // img and frame number

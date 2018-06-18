@@ -1,4 +1,4 @@
-package game;
+package schoolGameFramework;
 
 import java.util.ArrayList;
 

@@ -1,8 +1,8 @@
-package game;
+package schoolGameFramework;
 
 
 import jplay.Window;
-import game.Player;
+import schoolGameFramework.Player;
 
 public abstract class Level extends Scenario {
 	

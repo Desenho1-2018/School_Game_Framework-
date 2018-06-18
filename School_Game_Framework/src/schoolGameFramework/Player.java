@@ -1,4 +1,4 @@
-package game;
+package schoolGameFramework;
 
 import jplay.Keyboard;
 import jplay.Window;
@@ -119,6 +119,7 @@ public class Player extends GameObject{
 		
 	}
 	
+	@SuppressWarnings("static-access")
 	public void setScore(int sc){
 		this.score = this.score - sc;
 	}
@@ -139,6 +140,7 @@ public class Player extends GameObject{
 		this.nextLevel = level;
 	}
 	
+	@SuppressWarnings("static-access")
 	public void resetScore() {
 		this.score = 3;
 	}

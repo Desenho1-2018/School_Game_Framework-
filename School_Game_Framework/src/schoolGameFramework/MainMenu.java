@@ -1,9 +1,7 @@
-package game;
+package schoolGameFramework;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.util.ArrayList;
-
 import jplay.GameImage;
 import jplay.Keyboard;
 import jplay.Window;

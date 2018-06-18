@@ -1,4 +1,4 @@
-package game;
+package schoolGameFramework;
 
 public abstract class TemplateCollectLevel extends Level {
 	

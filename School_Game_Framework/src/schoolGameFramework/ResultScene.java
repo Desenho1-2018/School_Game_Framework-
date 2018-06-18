@@ -1,4 +1,4 @@
-package game;
+package schoolGameFramework;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -12,6 +12,7 @@ public class ResultScene extends Level{
 	private static boolean result = true;
 	private Font font = new Font("Verdana", Font.BOLD, 25);
 	private static ResultScene instanceResult = null;
+	@SuppressWarnings("unused")
 	private static String previousScenario = null;
 	private static String nextScenario = null;
 	private static String scoreScenario = null;

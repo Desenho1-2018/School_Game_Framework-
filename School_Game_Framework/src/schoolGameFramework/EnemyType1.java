@@ -1,4 +1,4 @@
-package game;
+package schoolGameFramework;
 
 public class EnemyType1 extends Enemy{
 	
