@@ -49,11 +49,11 @@ public class ScoreScreen extends Level {
 			drawObjects();
 			background.draw();
 			window.drawText("RESULTADO", 300, 200, Color.white, font);
-			if(scoreIndex == 0) {
+			//if(scoreIndex == 0) {
+				//window.drawText(score.getScoreType(0), 315, 300, Color.white, fontResult);
+			//} else {
 				window.drawText(score.getScoreType(scoreIndex), 315, 300, Color.white, fontResult);
-			} else {
-				window.drawText(score.getScoreType(scoreIndex-1), 315, 300, Color.white, fontResult);
-			}
+			//}
 			window.drawText("Press Enter", 100, 550, Color.white, font);
 			pressEnter();
 			window.update();			
