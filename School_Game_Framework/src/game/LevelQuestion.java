@@ -107,22 +107,26 @@ public class LevelQuestion extends Level{
 		if(sceneKeyboard.keyDown(Keyboard.ENTER_KEY)) {
 			switch(option){
 			  case 0:
-				waitATime();  
+				waitATime();
+				testQuestion(question.get(questionIndex).getAlternative(0).getValidate());
 				callResultScene(question.get(questionIndex).getAlternative(0).getValidate());
 				toNextQuestion();
 				 break;
 			  case 1:
 				waitATime();
+				testQuestion(question.get(questionIndex).getAlternative(1).getValidate());
 				callResultScene(question.get(questionIndex).getAlternative(1).getValidate());
 				toNextQuestion();
 				break;	
 			  case 2:
 				waitATime();
+				testQuestion(question.get(questionIndex).getAlternative(2).getValidate());
 				callResultScene(question.get(questionIndex).getAlternative(2).getValidate());
 				toNextQuestion();
 				break;
 			  case 3:
 				waitATime();
+				testQuestion(question.get(questionIndex).getAlternative(3).getValidate());
 				callResultScene(question.get(questionIndex).getAlternative(3).getValidate());
 				toNextQuestion();
 				break;	
@@ -172,6 +176,14 @@ public class LevelQuestion extends Level{
 		} else {
 			System.out.println("The number maximus of questions is 3");
 			ResultScene.setNextLevel(null);
+		}
+	}
+	
+	private void testQuestion(boolean validateQuestion) {
+		if(validateQuestion == true) {
+			ScoreScreen.plusScore();
+		} else {
+			//do Nothing
 		}
 	}
 	

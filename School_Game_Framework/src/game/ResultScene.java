@@ -79,7 +79,7 @@ public class ResultScene extends Level{
 	}
 	
 	private void printResultTrue() {
-		
+
 		window.drawText("ALGO DE CERTO NÃO ESTÁ ERRADO", 130, 230, Color.green, font);
 		window.drawText("enter", 130, 450, Color.WHITE, font);
 		
@@ -88,18 +88,19 @@ public class ResultScene extends Level{
 	private void printResult(boolean result) {
 		
 		if(result) {
-			printResultTrue();
+			printResultTrue();	
 		} else {
 			printResultFalse();
 		}
 		
-		waitATime();
+		
+		waitATime(1000);
 		
 	}
 	
-	private void waitATime() {
+	private void waitATime(int time) {
 		try {
-			Thread.sleep(1000);
+			Thread.sleep(time);
 		} catch (InterruptedException e){
 			e.printStackTrace();
 		}
