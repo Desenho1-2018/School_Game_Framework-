@@ -49,7 +49,11 @@ public class ScoreScreen extends Level {
 			drawObjects();
 			background.draw();
 			window.drawText("RESULTADO", 300, 200, Color.white, font);
-			window.drawText(score.getScoreType(scoreIndex), 315, 300, Color.white, fontResult);
+			if(scoreIndex == 0) {
+				window.drawText(score.getScoreType(scoreIndex), 315, 300, Color.white, fontResult);
+			} else {
+				window.drawText(score.getScoreType(scoreIndex-1), 315, 300, Color.white, fontResult);
+			}
 			window.drawText("Press Enter", 100, 550, Color.white, font);
 			pressEnter();
 			window.update();			
@@ -111,6 +115,7 @@ public class ScoreScreen extends Level {
 	public static void plusScore() {
 		if(scoreIndex < 3) {
 			scoreIndex++;
+			System.out.println(scoreIndex);
 		} else {
 			System.out.println("The maximum number of score is 3");
 		}
