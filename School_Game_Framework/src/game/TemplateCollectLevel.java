@@ -2,11 +2,10 @@ package game;
 
 public abstract class TemplateCollectLevel extends Level {
 	
-	public String runScenario() {
+	public final void initializeLevel() {
 		initializeKeyboard();
 		drawObjects();
 		updateScenario();
-		return nextScenario;
 	}
 
 	public abstract void createBackground(String imagePath);
