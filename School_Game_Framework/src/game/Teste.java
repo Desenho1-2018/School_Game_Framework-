@@ -15,19 +15,20 @@ public class Teste {
 		String backgroundImage = "src//recursos//tiles//planofundo.png";
 		GameObject obj1 = new GameObject(150, 200, "src//recursos//sprite//livro.gif", 1, GameObjectType.REFERENCE_ITEM);
 		GameObject obj2 = new GameObject(660, 500, "src//recursos//sprite//canudol.gif", 1, GameObjectType.REFERENCE_ITEM);
-		GameObject enemy = new Enemy(30, 400, "src//recursos//sprite//zumbi.png", 1, GameObjectType.PLAYER);
-
+		Enemy enemyType1 = new EnemyType1();
+		Enemy enemyType2 = new EnemyType2();
+		
 		level.createBackground(backgroundImage);
 		level.createTime(0, 0, 20, 50, 50, false);
 		level.createObject(obj1);
 		level.createObject(obj2);
-		level.createObject(enemy);
+		level.createObject(enemyType1);
+		level.createObject(enemyType2);
 		level.defeatScenario("GameOver");
 		level.winScenario("NextLevel");
 			
 		levelStateMachine.addScenario(level);
 		levelStateMachine.addScenario(gameover);
-		enemy.draw();
     
 		levelStateMachine.run("Level1");
 
