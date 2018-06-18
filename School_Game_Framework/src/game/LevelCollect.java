@@ -102,6 +102,11 @@ public class LevelCollect extends TemplateCollectLevel {
 		keyboard.setBehavior(Keyboard.LEFT_KEY, Keyboard.DETECT_EVERY_PRESS);
 		keyboard.setBehavior(Keyboard.RIGHT_KEY, Keyboard.DETECT_EVERY_PRESS);
 	}
+	@Override
+	public void drawObjects() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }

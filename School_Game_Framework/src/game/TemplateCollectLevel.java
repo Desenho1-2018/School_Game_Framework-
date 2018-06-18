@@ -4,6 +4,7 @@ public abstract class TemplateCollectLevel extends Level {
 	
 	public String runScenario() {
 		initializeKeyboard();
+		drawObjects();
 		updateScenario();
 		return nextScenario;
 	}
@@ -21,6 +22,8 @@ public abstract class TemplateCollectLevel extends Level {
 	public abstract void initializeKeyboard();
 	
 	public abstract void updateScenario();
+	
+	public abstract void drawObjects();
 
 	public abstract void enemySpawn(GameObject enemy);
 	
