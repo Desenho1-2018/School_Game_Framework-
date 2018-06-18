@@ -7,7 +7,8 @@ public class EnemyType1 extends Enemy{
 	}
 	
 	public EnemyType1() {
-		super(damage, damage, enemyType, damage, type);
+		super(300, 150, "src//recursos//sprite//zumbi2.png", 1, GameObjectType.SIMPLE_ENEMMY);
 		reactionType = new SlowDownHero();
 	}
+
 }
