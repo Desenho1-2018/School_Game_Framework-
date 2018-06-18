@@ -25,6 +25,7 @@ public class Teste {
 		level.defeatScenario("GameOver");
 		level.winScenario("NextLevel");
 			
+
 		levelStateMachine.addScenario(level);
 		levelStateMachine.addScenario(gameover);
 		enemy.draw();
