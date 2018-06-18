@@ -63,6 +63,7 @@ public class Main {
 		
 		ScoreScreen score = ScoreScreen.getScoreScreenInstance(gameWindow);
 		Score testScore = new Score();
+		testScore.addScoreType("MI");
 		testScore.addScoreType("MM");
 		testScore.addScoreType("MS");
 		testScore.addScoreType("SS");
