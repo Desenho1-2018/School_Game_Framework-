@@ -73,14 +73,14 @@ public class ResultScene extends Level{
 
 	private void printResultFalse() {
 		
-		window.drawText("ALGO DE ERRADO NÃO ESTÁ CERTO", 130, 230, Color.red, font);
+		window.drawText("ALGO DE ERRADO NÃƒO ESTÃ� CERTO", 130, 230, Color.red, font);
 		window.drawText("enter", 130, 450, Color.WHITE, font);
 		
 	}
 	
 	private void printResultTrue() {
 
-		window.drawText("ALGO DE CERTO NÃO ESTÁ ERRADO", 130, 230, Color.green, font);
+		window.drawText("ALGO DE CERTO NÃƒO ESTÃ� ERRADO", 130, 230, Color.green, font);
 		window.drawText("enter", 130, 450, Color.WHITE, font);
 		
 	}
@@ -125,6 +125,7 @@ public class ResultScene extends Level{
 	private void pressEnter() {
 		if(sceneKeyboard.keyDown(Keyboard.ENTER_KEY)) {
 			if(resultPosition < 2) {
+				System.out.println(resultPosition);
 				resultPosition++;
 				nextScenario = questionScenario;
 			} else {

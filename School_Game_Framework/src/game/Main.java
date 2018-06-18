@@ -60,10 +60,24 @@ public class Main {
 		ResultScene result = ResultScene.getResultInstance(gameWindow, false);
 
 		MainMenu mainmenu = new MainMenu(gameWindow, "MainMenu");
+		
+		ScoreScreen score = ScoreScreen.getScoreScreenInstance(gameWindow);
+		Score testScore = new Score();
+		testScore.addScoreType("MM");
+		testScore.addScoreType("MS");
+		testScore.addScoreType("SS");
+		
+		ScoreScreen.addScore(testScore);
+		
+		ResultScene.setQuestionScenario("XABLAU");
+		ResultScene.setScoreScenario("ScoreScreen");
+		
 		levelStateMachine.addScenario(xablau);
 		levelStateMachine.addScenario(result);
 		levelStateMachine.addScenario(mainmenu);
-		levelStateMachine.run("MainMenu");
+		levelStateMachine.addScenario(score);
+		
+		levelStateMachine.run("XABLAU");
 		
 	}
 
