@@ -22,6 +22,7 @@ public class Teste {
 		level.createObject(obj2);
 		level.defeatScenario("GameOver");
 		level.winScenario("NextLevel");
+		level.initializeLevel();
 	
 		levelStateMachine.addScenario(level);
 		levelStateMachine.addScenario(gameover);
