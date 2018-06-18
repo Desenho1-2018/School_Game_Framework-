@@ -4,26 +4,26 @@ public abstract class TemplateCollectLevel extends Level {
 	
 	public final void initializeLevel() {
 		initializeKeyboard();
-		drawLevel();
-		runScenario();
+		drawObjects();
+		updateScenario();
 	}
 
-	protected abstract void createBackground(String imagePath);
+	public abstract void createBackground(String imagePath);
 	
-	protected abstract void createObject(GameObject obj);
+	public abstract void createObject(GameObject obj);
 	
-	protected abstract void createTime(int hour, int minute, int second, int x, int y, Boolean crescentTime);
+	public abstract void createTime(int hour, int minute, int second, int x, int y, Boolean crescentTime);
 	
-	protected abstract void defeatScenario(String nextScenario);
+	public abstract void defeatScenario(String nextScenario);
 	
-	protected abstract void winScenario(String nextScenario);
+	public abstract void winScenario(String nextScenario);
 	
-	protected abstract void initializeKeyboard();
+	public abstract void initializeKeyboard();
+	
+	public abstract void updateScenario();
+	
+	public abstract void drawObjects();
 
-	protected abstract void drawLevel();
-
-	public abstract String runScenario();
-
-	protected abstract void enemySpawn(GameObject enemy);
+	public abstract void enemySpawn(GameObject enemy);
 	
 }

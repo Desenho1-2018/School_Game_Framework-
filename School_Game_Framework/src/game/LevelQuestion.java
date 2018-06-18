@@ -10,10 +10,11 @@ import jplay.Window;
 
 public class LevelQuestion extends Level{
 	
-	private Question question = null;
+	private ArrayList<Question> question = new ArrayList<Question>();
 	private GameObject arrow = null;
 	private Font font = new Font("Verdana", Font.BOLD, 25);
 	private int option = 0;
+	private int questionIndex = 0;
 	//private ResultScene resultInstance = null;
 	
 	public LevelQuestion(Window gameWindow, String name){
@@ -27,21 +28,19 @@ public class LevelQuestion extends Level{
 	};
 	
 	protected void updateScenario() {
-		
+				
 		while(nextScenario == null) {
 			
-			drawObjects();
 			background.draw();
 			
 			arrow.draw();
 			moveArrow();
-			
-			//System.out.println(question.getStatement());
-			window.drawText(question.getStatement(), 90, 140, Color.white, font);
-			window.drawText(question.getAlternative(0).getAlternative(), 120, 200, Color.white, font);
-			window.drawText(question.getAlternative(1).getAlternative(), 120, 260, Color.white, font);
-			window.drawText(question.getAlternative(2).getAlternative(), 120, 320, Color.white, font);
-			window.drawText(question.getAlternative(3).getAlternative(), 120, 380, Color.white, font);
+		
+			window.drawText(question.get(questionIndex).getStatement(), 90, 140, Color.white, font);
+			window.drawText(question.get(questionIndex).getAlternative(0).getAlternative(), 120, 200, Color.white, font);
+			window.drawText(question.get(questionIndex).getAlternative(1).getAlternative(), 120, 260, Color.white, font);
+			window.drawText(question.get(questionIndex).getAlternative(2).getAlternative(), 120, 320, Color.white, font);
+			window.drawText(question.get(questionIndex).getAlternative(3).getAlternative(), 120, 380, Color.white, font);
 			
 			selectOption();
 			window.update();
@@ -51,7 +50,7 @@ public class LevelQuestion extends Level{
 	}
 
 	public String runScenario() {
-		
+		nextScenario = null;
 		initializeKeyboard();
 		this.updateScenario();
 		//this.playerInstance.setPreviousLevel("XABLAU");
@@ -108,20 +107,28 @@ public class LevelQuestion extends Level{
 		if(sceneKeyboard.keyDown(Keyboard.ENTER_KEY)) {
 			switch(option){
 			  case 0:
-				waitATime();  
-				callResultScene(question.getAlternative(0).getValidate());
+				waitATime();
+				testQuestion(question.get(questionIndex).getAlternative(0).getValidate());
+				callResultScene(question.get(questionIndex).getAlternative(0).getValidate());
+				toNextQuestion();
 				 break;
 			  case 1:
 				waitATime();
-				callResultScene(question.getAlternative(1).getValidate());
+				testQuestion(question.get(questionIndex).getAlternative(1).getValidate());
+				callResultScene(question.get(questionIndex).getAlternative(1).getValidate());
+				toNextQuestion();
 				break;	
 			  case 2:
 				waitATime();
-				callResultScene(question.getAlternative(2).getValidate());
+				testQuestion(question.get(questionIndex).getAlternative(2).getValidate());
+				callResultScene(question.get(questionIndex).getAlternative(2).getValidate());
+				toNextQuestion();
 				break;
 			  case 3:
 				waitATime();
-				callResultScene(question.getAlternative(3).getValidate());
+				testQuestion(question.get(questionIndex).getAlternative(3).getValidate());
+				callResultScene(question.get(questionIndex).getAlternative(3).getValidate());
+				toNextQuestion();
 				break;	
 		  }	
 		}
@@ -140,19 +147,43 @@ public class LevelQuestion extends Level{
 	
 	}
 	
-	public void addQuestion(Question question) {
+	public void addQuestion(Question q) {
 		
-		this.question = question;
+		if(question.size() <= 2) {
+			question.add(q);
+		} else {
+			System.out.println("The number maximus of questions is 3");
+		}
 		
 	}
 	
 	private void callResultScene(boolean result) {
+	
 		if(result == true) {
+			System.out.println(result);
 			ResultScene.setResult(true);
 			this.nextScenario = "ResultScene";
 		} else {
 			ResultScene.setResult(false);
 			this.nextScenario = "ResultScene";
+		}
+	}
+	
+	private void toNextQuestion() {
+		if(questionIndex < 3) {
+			questionIndex++;
+			ResultScene.setNextLevel(null);
+		} else {
+			System.out.println("The number maximus of questions is 3");
+			ResultScene.setNextLevel(null);
+		}
+	}
+	
+	private void testQuestion(boolean validateQuestion) {
+		if(validateQuestion == true) {
+			ScoreScreen.plusScore();
+		} else {
+			//do Nothing
 		}
 	}
 	

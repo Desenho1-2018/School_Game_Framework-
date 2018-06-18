@@ -7,7 +7,7 @@ public class GameObject extends Sprite{
 	private String gameObjectName = "";
 	@SuppressWarnings("unused")
 	private String spritePath = "";
-	private GameObjectType type;
+	protected static GameObjectType type;
 	
 	public GameObject(int x, int y, String spritePath, int spriteDivision, GameObjectType objtype){
 	
