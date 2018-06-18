@@ -35,15 +35,15 @@ public class LevelCollect extends TemplateCollectLevel {
 	public void createTime(int hour, int minute, int second, int x, int y, Boolean crescentTime) {
 		this.time = new Time(hour, minute, second, x, y, crescentTime);
 	}
-	protected void defeatScenario(String scenarioDefeat) {
+	public void defeatScenario(String scenarioDefeat) {
 		this.defeat = scenarioDefeat;
 	}
 
-	protected void winScenario(String scenarioWin) {
+	public void winScenario(String scenarioWin) {
 		this.win = scenarioWin;
 	}
 	
-	protected void enemySpawn(GameObject enemy) {
+	public void enemySpawn(GameObject enemy) {
 		if(hasEnemies == true) {
 			this.object.add(enemy);
 		}
@@ -91,7 +91,7 @@ public class LevelCollect extends TemplateCollectLevel {
 		}
 	}
 	@Override
-	protected void initializeKeyboard() {
+	public void initializeKeyboard() {
 		if (window != null) {
 			keyboard = window.getKeyboard();
 		} else {
