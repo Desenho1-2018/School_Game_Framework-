@@ -7,7 +7,7 @@ public class EnemyType2 extends Enemy{
 	}
 	
 	public EnemyType2() {
-		super();
+		super(damage, damage, enemyType, damage, type);
 		reactionType = new DoesDamageHero();
 	}
 }

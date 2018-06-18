@@ -7,7 +7,7 @@ public class EnemyType1 extends Enemy{
 	}
 	
 	public EnemyType1() {
-		super();
+		super(damage, damage, enemyType, damage, type);
 		reactionType = new SlowDownHero();
 	}
 }

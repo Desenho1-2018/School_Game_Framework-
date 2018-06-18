@@ -1,12 +1,24 @@
 package game;
 
-public class Enemy {
-
-	private String enemyType;
-	private int damage;
-	private int lifePoints;
-	private double speed;
+public class Enemy extends GameObject {
 	
+	public Enemy(int x, int y, String spritePath, int spriteDivision, GameObjectType objtype) {
+		super(x, y, spritePath, spriteDivision, objtype);
+		this.x = x;
+		this.y = y;
+		this.setTotalDuration(2000);
+		this.speed = 0.2;
+	}
+
+	public static String enemyType;
+	public static int damage;
+	private int lifePoints;
+	private double speed = 0.2;
+	private int direction = 3;
+	private boolean isMoving = false;
+	private static Player instancePlayer = null;
+	private GameObjectType collisionType = null;
+		
 	public EnemyReacts reactionType;
 
 	public String getEnemyType() {
