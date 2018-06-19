@@ -102,4 +102,8 @@ public class MainMenu extends Scenario{
 	
 	}
 	
+	public void setArrowImage(String arrowPath) {
+		this.arrow = new GameObject(270, 210, arrowPath, 1, GameObjectType.OTHER);
+	}
+    
 }
