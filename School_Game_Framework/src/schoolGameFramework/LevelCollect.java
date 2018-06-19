@@ -24,9 +24,9 @@ public class LevelCollect extends TemplateCollectLevel {
 	public LevelCollect(Window gameWindow, String name) {
 		this.window = gameWindow;
 		scenarioName = name;
-		addPlayer(100, 100, "src//recursos//sprite//jogador2.png", 20, window);
-	}
 
+		
+	}
 	public void createBackground(String imagePath) {
 		this.background = new GameImage(imagePath);
 	}

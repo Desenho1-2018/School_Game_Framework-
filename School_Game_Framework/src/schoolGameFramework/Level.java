@@ -7,9 +7,9 @@ import schoolGameFramework.Player;
 public abstract class Level extends Scenario {
 	
 	/**
-	 * Esta classe é responsável por, somente, as fases do jogo.
-	 * A sua diferença de scenario é que ela possui o método de
-	 * colisão com todas as paredes do jogo.
+	 * Esta classe ï¿½ responsï¿½vel por, somente, as fases do jogo.
+	 * A sua diferenï¿½a de scenario ï¿½ que ela possui o mï¿½todo de
+	 * colisï¿½o com todas as paredes do jogo.
 	 */
 	
 	
@@ -17,7 +17,7 @@ public abstract class Level extends Scenario {
 	protected Player playerInstance = null;
 	
 	//Metodos
-	protected void addPlayer(int posX, int posY, String spritePath,  int spriteDivision, Window gameWindow){
+	public void addPlayer(int posX, int posY, String spritePath,  int spriteDivision, Window gameWindow){
 		this.playerInstance = Player.getPlayerInstance(posX, posY, spritePath, spriteDivision, gameWindow);
 	}
 	

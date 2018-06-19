@@ -1,5 +1,7 @@
 package schoolGameFramework;
 
+import jplay.Window;
+
 public abstract class TemplateCollectLevel extends Level {
 	
 	public final void initializeLevel() {
@@ -13,7 +15,7 @@ public abstract class TemplateCollectLevel extends Level {
 	public abstract void createObject(GameObject obj);
 	
 	public abstract void createTime(int hour, int minute, int second, int x, int y, Boolean crescentTime);
-	
+		
 	public abstract void defeatScenario(String nextScenario);
 	
 	public abstract void winScenario(String nextScenario);
