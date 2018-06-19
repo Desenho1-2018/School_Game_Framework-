@@ -27,6 +27,10 @@ public class LevelQuestion extends Level{
 		
 	};
 	
+	public void setArrowImage(String arrowPath) {
+		this.arrow = new GameObject(270, 210, arrowPath, 1, GameObjectType.OTHER);
+	}
+	
 	protected void updateScenario() {
 				
 		while(nextScenario == null) {

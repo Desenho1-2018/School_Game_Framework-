@@ -83,4 +83,7 @@ public abstract class Scenario extends Scene {
 		
 		}
 		
+		public void setBackground(String bg) {
+			this.background = new GameImage(bg);
+		}
 }
